@@ -1,1 +1,0 @@
-apt-get install dos2unix && dos2unix inst.sh && chmod +x inst.sh && ./inst.sh
