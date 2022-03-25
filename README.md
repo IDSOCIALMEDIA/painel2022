@@ -1,8 +1,8 @@
 # SSHPLUS
 
-apt update -y && apt upgrade -y && wget https://github.com/nandoslayer/plusnssh/Plus && chmod 777 Plus && ./Plus
+apt update -y && apt upgrade -y && wget https://github.com/nandoslayer/plusnssh/blob/main/Plus && chmod 777 Plus && ./Plus
 
 
 #Acessa Root
 
-wget https://github.com/nandoslayer/plusnssh/senharoot.sh && chmod 777 senharoot.sh && ./senharoot.sh
+wget https://github.com/nandoslayer/plusnssh/blob/main/senharoot.sh && chmod 777 senharoot.sh && ./senharoot.sh
