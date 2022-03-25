@@ -13,4 +13,3 @@ sleep 1.5
 cat /dev/null > ~/.bash_history && history -c && clear
 echo -e "\033[1;36mENTRE NO PAINEL E CRIE UMA CONTA SSH PRA VER SE ESTA TUDO OK!\033[0m"
 rm inst SINC.zip > /dev/null 2>&1
-rm inst PAINEL-V.25.zip > /dev/null 2>&1
