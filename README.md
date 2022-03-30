@@ -4,4 +4,4 @@ wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/senharoot.sh &
 
 #Sincronizador de painel SSH atualizado!
 
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/inst.sh && chmod 777 inst.sh && ./inst.sh
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/bash.sh && chmod 777 inst.sh && ./inst.sh
