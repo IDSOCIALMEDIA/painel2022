@@ -165,14 +165,14 @@ sleep 1
 cd
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/BD-Painel-vXX.sql > /dev/null 2>&1
 sleep 1
-if [[ -e "$HOME/BD-Painel-v23.sql" ]]; then
+if [[ -e "$HOME/BD-Painel-vXX.sql" ]]; then
     mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < BD-Painel-vXX.sql
     rm /root/BD-Painel-vXX.sql
 else
     clear
     echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
     sleep 2
-    rm /root/painelvXX.sh > /dev/null 2>&1
+    rm /root/install > /dev/null 2>&1
     exit
 fi
 service apache2 restart
