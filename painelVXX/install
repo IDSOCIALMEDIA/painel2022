@@ -1,1 +1,1 @@
-apt-get install dos2unix && wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/painelvXX.sh && dos2unix painelvXX.sh && chmod +x painelvXX.sh && ./painelvXX.sh
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/painelvXX.sh /dev/null 2>&1; chmod +x painelvXX.sh; ./painelvXX.sh
