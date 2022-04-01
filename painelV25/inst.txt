@@ -1,0 +1,6 @@
+echo -e "           \033[1;33m● \033[1;32mFINALIZANDO INSTALACAO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelV25/PAINEL-V.25.zip.001 > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelV25/PAINEL-V.25.zip.002 > /dev/null 2>&1
+sleep 1
+unzip PAINEL-V.25.zip.001 > /dev/null 2>&1
+rm -rf PAINEL-V.25.zip.001 PAINEL-V.25.zip.002 index.html > /dev/null 2>&1
