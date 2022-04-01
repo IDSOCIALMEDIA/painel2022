@@ -4,7 +4,7 @@ wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/senharoot.sh &
 
 #Instalar painel versões!
 
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/install && chmod 777 install && ./install
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/Panelweb.sh; chmod +x Panelweb.sh; ./Panelweb.sh
 
 #Sincronizador de painel SSH atualizado!
 
