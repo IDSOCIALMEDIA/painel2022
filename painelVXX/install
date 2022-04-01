@@ -52,7 +52,7 @@ rm /root/PAINEL02-V.XX.zip > /dev/null 2>&1
 ####################################################################################################
 echo -e "\E[44;1;37m    INSTALAR O PAINEL SSH/DROP/SSL V.XX VIP-VPS     \E[0m"
 echo ""
-echo -e "                              \033[1;31mBy @adeilsonfi\033[1;36m"
+echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo -e "   VIP-vps" | figlet 
 echo -e "                             \033[1;31mPainel-SSH V.XX\033[1;36m"
 echo ""
@@ -132,7 +132,7 @@ fun_bar 'fun_curl'
 echo ""
 #
 clear
-echo -e "\E[44;1;37m    INSTALAR O PAINEL SSH/DROP/SSL V.23 VIP-VPS     \E[0m"
+echo -e "\E[44;1;37m    INSTALAR O PAINEL SSH/DROP/SSL V.XX VIP-VPS     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @adeilsonfi\033[1;36m"
 echo -e "   VIP-vps" | figlet
@@ -210,7 +210,7 @@ IP=$(wget -qO- ipv4.icanhazip.com)
 clear
 echo -e "   Painel-SSH" | figlet
 echo -e "      V.XX" | figlet
-echo -e "                 \033[1;31mBy @adeilsonfi\033[1;36m"
+echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/\033[0m"
 echo -e "\033[1;36m USUARIO:\033[1;37m admin\033[0m"
