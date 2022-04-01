@@ -1,6 +1,6 @@
 #!/bin/bash
 barra="\033[0m\e[34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-[[ ! -e /bin/ipw ]] && echo "/root/Panelweb.sh" > /bin/ipw && chmod +x /bin/ipw #ACCESO RAPIDO
+[[ ! -e /bin/ipw ]] && echo "/root/Painelweb.sh" > /bin/ipw && chmod +x /bin/ipw #ACCESO RAPIDO
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
