@@ -46,12 +46,9 @@ IP=$(wget -qO- ipv4.icanhazip.com)
 echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
-rm /root/painelvXX.sh > /dev/null 2>&1
 rm $HOME/painelvXX.sh > /dev/null 2>&1
 rm /root/PAINEL01-V.XX.zip > /dev/null 2>&1
-rm $HOME/PAINEL01-V.XX.zip > /dev/null 2>&1
 rm /root/PAINEL02-V.XX.zip > /dev/null 2>&1
-rm $HOME/PAINEL02-V.XX.zip > /dev/null 2>&1
 ####################################################################################################
 echo -e "\E[44;1;37m    INSTALAR O PAINEL SSH/DROP/SSL V.XX VIP-VPS     \E[0m"
 echo ""
