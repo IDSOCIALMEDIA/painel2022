@@ -2,7 +2,7 @@
 
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/senharoot.sh && chmod 777 senharoot.sh && ./senharoot.sh
 
-#Instalar painel versões!
+#Instalar painel VXX!
 
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/install && chmod 777 install && ./install
 
