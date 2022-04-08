@@ -44,7 +44,7 @@ clear
 #
 echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ATUALIZAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
 cd /var/www/html
-rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html admin app-assets arquivos assets lib pages phpmailer scripts src > /dev/null 2>&1
+rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL01-V.XX.zip > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL02-V.XX.zip > /dev/null 2>&1
 sleep 1
@@ -66,8 +66,8 @@ echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/\033[0m"
 echo ""
-sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 300M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
-sed -i "s;upload_max_filesize = 20M;upload_max_filesize = 300M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
+sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 90M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
+sed -i "s;upload_max_filesize = 20M;upload_max_filesize = 90M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 service apache2 restart
 echo ""
 echo -e "\033[1;31m A VPS SERA REINICIADO EM 10 SEGUNDOS...\033[0m"
