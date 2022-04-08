@@ -33,7 +33,7 @@ clear
 echo -e "\E[44;1;37m    ATUALIZANDO O PAINEL SSH/DROP/SSL V.XX GESTOR-SSH     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
-echo -e "   VIP-vps" | figlet
+echo -e "   GESTOR-SSH" | figlet
 echo ""
 echo -e "\033[1;31m ATENCAO \033[1;33m!!!"
 echo ""
@@ -67,6 +67,7 @@ echo ""
 echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/\033[0m"
 echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 300M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
+sed -i "s;upload_max_filesize = 20M;upload_max_filesize = 300M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 service apache2 restart
 echo ""
 echo -e "\033[1;31m A VPS SERA REINICIADO EM 10 SEGUNDOS...\033[0m"
