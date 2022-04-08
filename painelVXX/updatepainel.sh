@@ -29,6 +29,11 @@ tput cnorm
 echo ""
 clear
 #
+rm /root/install > /dev/null 2>&1
+rm /root/update > /dev/null 2>&1
+rm /root/updatepainel.sh > /dev/null 2>&1
+rm /root/PAINEL01-V.XX.zip > /dev/null 2>&1
+rm /root/PAINEL02-V.XX.zip > /dev/null 2>&1
 clear
 echo -e "\E[44;1;37m    ATUALIZANDO O PAINEL SSH/DROP/SSL V.XX GESTOR-SSH     \E[0m"
 echo ""
