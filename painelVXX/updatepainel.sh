@@ -44,7 +44,7 @@ clear
 #
 echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ATUALIZAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
 cd /var/www/html
-rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html > /dev/null 2>&1
+rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html arquivos > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL01-V.XX.zip > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL02-V.XX.zip > /dev/null 2>&1
 sleep 1
