@@ -8,7 +8,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/na
 
 #ATUALIZAR PAINEL Vxx!
 
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/updatepainel && chmod 777 updatepainel && ./updatepainel
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/update && chmod 777 update && ./update
 
 #Sincronizador de painel SSH atualizado!
 
