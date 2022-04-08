@@ -48,8 +48,8 @@ rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html arquivos > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL01-V.XX.zip > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL02-V.XX.zip > /dev/null 2>&1
 sleep 1
-unzip PAINEL01-V.XX.zip > /dev/null 2>&1
-unzip PAINEL02-V.XX.zip > /dev/null 2>&1
+unzip -o PAINEL01-V.XX.zip > /dev/null 2>&1
+unzip -o PAINEL02-V.XX.zip > /dev/null 2>&1
 rm -rf PAINEL01-V.XX.zip PAINEL02-V.XX.zip index.html > /dev/null 2>&1
 service apache2 restart
 sleep 1
