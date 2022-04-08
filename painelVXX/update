@@ -1,1 +1,1 @@
-apt-get install dos2unix && wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/updatepainel.sh && dos2unix updatepainel.sh && chmod +x updatepainel.sh && ./inst.sh
+apt-get install dos2unix && wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/updatepainel.sh && dos2unix updatepainel.sh && chmod +x updatepainel.sh && ./inst.sh
