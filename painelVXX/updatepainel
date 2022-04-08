@@ -30,7 +30,7 @@ echo ""
 clear
 #
 clear
-echo -e "\E[44;1;37m    ATUALZANDO O PAINEL SSH/DROP/SSL V.XX GESTOR-SSH     \E[0m"
+echo -e "\E[44;1;37m    ATUALIZANDO O PAINEL SSH/DROP/SSL V.XX GESTOR-SSH     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo -e "   VIP-vps" | figlet
