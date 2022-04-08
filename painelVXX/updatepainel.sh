@@ -76,6 +76,7 @@ echo -e "\033[1;31mREINICIANDO...\033[0m"
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
 rm /root/install > /dev/null 2>&1
-rm /root/updatepainel > /dev/null 2>&1
+rm /root/update > /dev/null 2>&1
+rm /root/updatepainel.sh > /dev/null 2>&1
 rm /root/PAINEL01-V.XX.zip > /dev/null 2>&1
 rm /root/PAINEL02-V.XX.zip > /dev/null 2>&1
