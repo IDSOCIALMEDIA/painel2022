@@ -12,4 +12,4 @@ wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/upda
 
 #Sincronizador de painel SSH atualizado!
 
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/install && chmod 777 install && ./install
+apt-get install dos2unix && wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/inst.sh && dos2unix inst.sh && chmod +x inst.sh && ./inst.sh
