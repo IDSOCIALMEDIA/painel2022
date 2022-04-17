@@ -5,8 +5,8 @@ ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 rm *.sh > /dev/null 2>&1
 apt install unzip -y > /dev/null 2>&1
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/sincpainel/SINC.zip > /dev/null 2>&1
-unzip SINC.zip > /dev/null 2>&1
+wget github.com/nandoslayer/plusnssh/raw/ntech/sincpainel/SINC.zip > /dev/null 2>&1
+unzip modulos.zip > /dev/null 2>&1
 chmod 777 *sh
 service ssh restart
 echo -e "\n\033[1;32mCONCLUIDO!\033[0m"
