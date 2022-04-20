@@ -50,14 +50,14 @@ rm $HOME/painelvXX.sh > /dev/null 2>&1
 rm /root/PAINEL01-V.XX.zip > /dev/null 2>&1
 rm /root/PAINEL02-V.XX.zip > /dev/null 2>&1
 ####################################################################################################
-echo -e "\E[44;1;37m    INSTALAR O PAINEL SSH/DROP/SSL V.XX GESTOR-SSH     \E[0m"
+echo -e "\E[44;1;37m    INSTALAR O PAINELWEB SSH/DROP/SSL GESTOR-SSH     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
-echo -e "   VIP-vps" | figlet 
-echo -e "                             \033[1;31mPainel-SSH V.XX\033[1;36m"
+echo -e "   GESTOR-SSH" | figlet 
+echo -e "                             \033[1;31mPAINELWEB GESTOR-SSH\033[1;36m"
 echo ""
 echo -ne "\n\033[1;32m  DEFINA UMA SENHA PARA O\033[1;33m MySQL\033[1;37m: "; read senha
-echo -e "\n\033[1;36m  INICIANDO INSTALACAO \033[1;33m"
+echo -e "\n\033[1;36m  INICIANDO INSTALAÇÃO \033[1;33m"
 echo ""
 
 #
@@ -132,7 +132,7 @@ fun_bar 'fun_curl'
 echo ""
 #
 clear
-echo -e "\E[44;1;37m    INSTALAR O PAINEL SSH/DROP/SSL V.XX GESTOR-SSH     \E[0m"
+echo -e "\E[44;1;37m    INSTALAR O PAINELWEB SSH/DROP/SSL GESTOR-SSH     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo -e "   GESTOR-SSH" | figlet
@@ -147,7 +147,7 @@ fun_bar 'sleep 4'
 echo ""
 clear
 #
-echo -e "           \033[1;33m● \033[1;32mFINALIZANDO INSTALACAO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
+echo -e "           \033[1;33m● \033[1;32mFINALIZANDO INSTALAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
 cd /var/www/html
 rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html admin app-assets arquivos assets lib pages phpmailer scripts src > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL01-V.XX.zip > /dev/null 2>&1
@@ -208,19 +208,19 @@ echo ""
 clear
 IP=$(wget -qO- ipv4.icanhazip.com)
 clear
-echo -e "   Painel-SSH" | figlet
-echo -e "      V.XX" | figlet
+echo -e "   PAINELWEB" | figlet
+echo -e "      GESTOR-SSH" | figlet
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/\033[0m"
-echo -e "\033[1;36m USUARIO:\033[1;37m admin\033[0m"
+echo -e "\033[1;36m IP DO SEU PAINELWEB:\033[1;37m http://$IP/\033[0m"
+echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
 echo -e "\033[1;33m Altere a senha quando logar no painel>> Configuracoes>> Senha Antiga: admin >> Nova Senha: \033[0m"
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 90M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 service apache2 restart
 echo ""
-echo -e "\033[1;31m A VPS SERA REINICIADO EM 10 SEGUNDOS...\033[0m"
+echo -e "\033[1;31m A VPS SERÁ REINICIADA EM 10 SEGUNDOS...\033[0m"
 sleep 15
 echo -e "\033[1;31mREINICIANDO...\033[0m"
 shutdown -r now
