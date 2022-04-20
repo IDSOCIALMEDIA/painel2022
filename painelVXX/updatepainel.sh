@@ -62,7 +62,7 @@ echo -e "   PAINELWEB" | figlet
 echo -e "      GESTOR-SSH" | figlet
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/\033[0m"
+echo -e "\033[1;36m IP DO SEU PAINELWEB:\033[1;37m http://$IP/\033[0m"
 echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 90M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 service apache2 restart
