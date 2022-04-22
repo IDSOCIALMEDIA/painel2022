@@ -52,7 +52,7 @@ rm -rf PAINEL01-V.XX.zip index.html > /dev/null 2>&1
 service apache2 restart
 sleep 1
 if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
-sed -i "s;1010;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
+sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
 fi
 #
 clear
