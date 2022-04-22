@@ -8,7 +8,7 @@ apt update && apt upgrade -y && apt install dos2unix -y && wget -o- https://raw.
 
 #ATUALIZAR PAINELWEB GESTOR-SSH!
 
-install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/update && chmod 777 update &&./update
+apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/update && chmod 777 update &&./update
 
 #Sincronizador de painel SSH atualizado!
 
