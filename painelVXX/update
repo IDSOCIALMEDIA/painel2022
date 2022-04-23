@@ -51,6 +51,11 @@ wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/PAINEL01-V.XX.z
 sleep 1
 unzip -o PAINEL01-V.XX.zip > /dev/null 2>&1
 rm -rf PAINEL01-V.XX.zip index.html > /dev/null 2>&1
+chmod 777 /var/www/html/admin/pages/apis/backup
+chmod 777 /var/www/html/admin/pages/servidor/ovpn
+chmod 777 /var/www/html/admin/pages/download
+chmod 777 /var/www/html/admin/pages/faturas/comprovantes
+chmod 777 /var/www/html/logo
 service apache2 restart
 sleep 1
 if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
