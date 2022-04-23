@@ -12,4 +12,4 @@ apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslaye
 
 #Sincronizador de painel SSH atualizado!
 
-apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/inst.sh && chmod 777 inst.sh &&./inst.sh
+apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/inst && chmod 777 inst &&./inst
