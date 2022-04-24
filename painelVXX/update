@@ -52,6 +52,11 @@ sleep 1
 unzip -o PAINEL01-V.XX.zip > /dev/null 2>&1
 rm -rf PAINEL01-V.XX.zip index.html > /dev/null 2>&1
 clear
+cd /etc
+rm -rf crontab > /dev/null 2>&1
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/crontab > /dev/null 2>&1
+sleep 1
+clear
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php ' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
