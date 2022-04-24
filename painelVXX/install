@@ -179,8 +179,9 @@ service apache2 restart
 clear
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php ' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.sms.php' >> /etc/crontab
+echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
+echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.teste.php' >> /etc/crontab
 echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
 # LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
 echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
