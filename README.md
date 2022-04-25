@@ -1,15 +1,17 @@
-#Acessa Root!
+# ACESSO ROOT!
 
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/senharoot.sh && chmod 777 senharoot.sh && ./senharoot.sh
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/senharoot.sh && chmod 777 senharoot.sh && ./senharoot.sh
 
-#INSTALAR PAINELWEB GESTOR-SSH!
+# INSTALAR PAINELWEB GESTOR-SSH!
 
-apt update && apt upgrade -y && apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/install && chmod 777 install &&./install
+apt update && apt upgrade -y && apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install && chmod 777 install &&./install
 
-#ATUALIZAR PAINELWEB GESTOR-SSH!
+# SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
 
-apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/painelVXX/update && chmod 777 update &&./update
+apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/inst && chmod 777 inst &&./inst
 
-#Sincronizador de painel SSH atualizado!
+# ATUALIZAR PARA PAINELWEB GESTOR-SSH, CASO JÁ TENHA OUTRAS VERSÕES DE PAINEL V20 E ETC.. EM DEBIAN 8!
+# NÂO TEM NESSECIDADE SE ACABOU DE INSTALAR, JÁ VAI ESTÁ ATUALIZADO!
+# TBM ATUALIZA CASO TENHA NOVAS CONFIGURAÇÕES NO V2022!
 
-apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/sincpainel/inst && chmod 777 inst &&./inst
+apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update && chmod 777 update &&./update
