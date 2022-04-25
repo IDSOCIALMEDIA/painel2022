@@ -4,7 +4,7 @@ wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/senh
 
 # INSTALAR PAINELWEB GESTOR-SSH!
 
-apt update && apt upgrade -y && apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install && chmod 777 install &&./install
+apt upgrade -y && apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install && chmod 777 install &&./install
 
 # SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
 
