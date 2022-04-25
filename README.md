@@ -2,7 +2,7 @@
 
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/senharoot.sh && chmod 777 senharoot.sh && ./senharoot.sh
 
-# INSTALAR PAINELWEB GESTOR-SSH!
+# INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8!
 
 apt upgrade -y && apt install dos2unix -y && wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install && chmod 777 install &&./install
 
