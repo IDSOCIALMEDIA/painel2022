@@ -8,7 +8,7 @@ apt upgrade -y && apt install dos2unix -y && wget -o- https://raw.githubusercont
 
 # SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
 
-apt install dos2unix -y && wget -o- github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/inst && chmod 777 inst &&./inst
+apt install dos2unix -y && wget -o- github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/inst && dos2unix inst && chmod 777 inst &&./inst
 
 # ATUALIZAR PARA PAINELWEB GESTOR-SSH, CASO JÁ TENHA OUTRAS VERSÕES DE PAINEL V20 E ETC.. EM DEBIAN 8!
 # NÂO TEM NESSECIDADE SE ACABOU DE INSTALAR, JÁ VAI ESTÁ ATUALIZADO!
