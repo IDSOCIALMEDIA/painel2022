@@ -1,6 +1,6 @@
 # ACESSO ROOT!
 
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/senharoot.sh && chmod 777 senharoot.sh && ./senharoot.sh
+bash <(wget -qO- github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot)
 
 # INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8!
 
