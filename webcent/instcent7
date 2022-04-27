@@ -100,4 +100,3 @@ echo "Login PHPMYADMIN: root" >> PHPMYADMINDATA.txt
 echo "senha PHPMYADMIN: $root_password" >> PHPMYADMINDATA.txt
 sleep 10
 }
-menu1
