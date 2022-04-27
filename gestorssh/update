@@ -74,7 +74,7 @@ echo '*/5 * * * * root /var/www/html/pages/system/autobackup.sh' >> /etc/crontab
 chmod 777 /var/www/html/admin/pages/servidor/ovpn
 chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-chmod 777 /var/www/html/pages/system
+chmod 777 /var/www/html/pages/system/autobackup.sh
 service apache2 restart
 sleep 1
 if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
