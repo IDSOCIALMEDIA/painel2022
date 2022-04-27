@@ -190,11 +190,9 @@ wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/autobackup.sh >
 # echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
 /etc/init.d/cron reload > /dev/null 2>&1
 /etc/init.d/cron restart > /dev/null 2>&1
-chmod 777 /var/www/html/admin/pages/apis/backup
 chmod 777 /var/www/html/admin/pages/servidor/ovpn
 chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-chmod 777 /var/www/html/logo
 service apache2 restart
 sleep 1
 service apache2 restart
