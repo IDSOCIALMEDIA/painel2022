@@ -4,7 +4,7 @@ bash <(wget -qO- github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot)
 
 # INSTALAR PAINELWEB GESTOR-SSH CENTOS 7!
 
-yum install wget -y && https://github.com/nandoslayer/plusnssh/raw/ntech/webcent/instcent7 && chmod +x instcent7 && ./instcent7
+yum install wget -y && https://github.com/nandoslayer/plusnssh/raw/ntech/webcent/instcent7.sh && chmod +x instcent7.sh && ./instcent7.sh
 
 # INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8!
 
