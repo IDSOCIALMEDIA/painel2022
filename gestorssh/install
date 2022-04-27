@@ -193,7 +193,7 @@ chmod 777 /var/www/html/admin/pages/apis/backup
 chmod 777 /var/www/html/admin/pages/servidor/ovpn
 chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-chmod 777 /var/www/html/pages/system/
+chmod 777 /var/www/html/pages/system
 service apache2 restart
 sleep 1
 service apache2 restart
