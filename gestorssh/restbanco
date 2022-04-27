@@ -1,0 +1,34 @@
+#!/bin/bash
+clear
+echo -e "\E[44;1;37m    RESTAURAR BANCO DE DADOS     \E[0m"
+echo -e "\E[44;1;37m    Copie o arquivo (sshplus.sql) para dendro da pasta root     \E[0m"
+echo ""
+echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
+echo -e "   GESTOR-SSH" | figlet
+echo ""
+echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
+echo ""
+echo -ne "\033[1;32m INFORME A SENHA DO MYSQL\033[1;37m: "; read senha
+echo -e "\033[1;32mOK\033[1;37m"
+sleep 1
+mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
+fun_bar 'sleep 4'
+echo ""
+clear
+#
+cd
+if [[ -e "root/sshplus.sql" ]]; then
+    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
+    rm /root/sshplus.sql
+else
+    clear
+    echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
+    sleep 2
+    rm /root/resbanco > /dev/null 2>&1
+
+    exit
+fi
+echo -e "\E[44;1;37m    BANCO DE DADOS RESTAURADO COM SUCESSO!     \E[0m"
+service apache2 restart
+sleep 2
+clear
