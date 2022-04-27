@@ -50,9 +50,6 @@ echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo -e "   GESTOR-SSH" | figlet 
 echo -e "                             \033[1;31mPAINELWEB GESTOR-SSH\033[1;36m"
-echo -e "                             \033[1;31mCASO TENHA UM BKP DO SEU SQL COPIE\033[1;36m"
-echo -e "                             \033[1;31mPARA A PASTA ROOT PARA RESTAURAR!\033[1;36m"
-echo -e "                             \033[1;31mARQUIVO DEVE TER O NOME (sshplus.sql)\033[1;36m"
 echo ""
 echo -ne "\n\033[1;32m  DEFINA UMA SENHA PARA O\033[1;33m MySQL\033[1;37m: "; read senha
 echo -e "\n\033[1;36m  INICIANDO INSTALAÇÃO \033[1;33m"
@@ -161,10 +158,7 @@ sleep 1
 cd
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/bdgestorssh.sql > /dev/null 2>&1
 sleep 1
-if [[ -e "$HOME/sshplus.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
-else
-    [[ -e "$HOME/bdgestorssh.sql" ]]; then
+if [[ -e "$HOME/bdgestorssh.sql" ]]; then
     mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < bdgestorssh.sql
     rm /root/bdgestorssh.sql
 else
