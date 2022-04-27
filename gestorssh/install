@@ -181,24 +181,19 @@ echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /e
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.teste.php' >> /etc/crontab
 echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
-# LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
-echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
-# BACKUP BANCO DE DADOS DATABASE SQL A CADA 2 MINUTOS #
-echo '*/2 * * * * root /bin/autobackup.sh' >> /etc/crontab
+# LIMPEZA HISTORICO USUARIOS ONLINE A CADA 2 MINUTO #
+echo '*/2 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
+# BACKUP BANCO DE DADOS DATABASE SQL A CADA 5 MINUTOS #
+echo '*/5 * * * * root /var/www/html/pages/system/autobackup.sh' >> /etc/crontab
 /etc/init.d/cron reload > /dev/null 2>&1
 /etc/init.d/cron restart > /dev/null 2>&1
-cd /bin
-rm autobackup.sh > /dev/null 2>&1
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/autobackup.sh > /dev/null 2>&1 && chmod 777 autobackup.sh && sed -i -e 's/\r$//' autobackup.sh && ./autobackup.sh
 # echo '0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
 # echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
-/etc/init.d/cron reload > /dev/null 2>&1
-/etc/init.d/cron restart > /dev/null 2>&1
 chmod 777 /var/www/html/admin/pages/apis/backup
 chmod 777 /var/www/html/admin/pages/servidor/ovpn
 chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-chmod 777 /var/www/html/logo
+chmod 777 /var/www/html/pages/system/
 service apache2 restart
 sleep 1
 service apache2 restart
