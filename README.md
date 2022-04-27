@@ -1,17 +1,24 @@
-# ACESSO ROOT!
+# ATUALIZAR PACOTES DO SISTEMA
+```
+apt-get update -y; apt-get upgrade -y;
+```
 
-bash <(wget -qO- github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot)
+# INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8! 
+```
+bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install)
+```
 
-# INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8!
+# SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH! 
+```
+bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/inst)
+```
 
-wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install && chmod 777 install &&./install
+# ATUALIZAR PARA PAINELWEB GESTOR-SSH, CASO JÁ TENHA OUTRAS VERSÕES DE PAINEL V20 E ETC.. EM DEBIAN 8! NÂO TEM NESSECIDADE SE ACABOU DE INSTALAR, JÁ VAI ESTÁ ATUALIZADO! TBM ATUALIZA CASO TENHA NOVAS CONFIGURAÇÕES NO V2022!
+```
+bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update)
+```
 
-# SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
-
-wget -o- github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/inst && chmod 777 inst &&./inst
-
-# ATUALIZAR PARA PAINELWEB GESTOR-SSH, CASO JÁ TENHA OUTRAS VERSÕES DE PAINEL V20 E ETC.. EM DEBIAN 8!
-# NÂO TEM NESSECIDADE SE ACABOU DE INSTALAR, JÁ VAI ESTÁ ATUALIZADO!
-# TBM ATUALIZA CASO TENHA NOVAS CONFIGURAÇÕES NO V2022!
-
-wget -o- https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update && chmod 777 update &&./update
+# DEFINIR/ALTERAR SENHA ROOT
+```
+bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot)
+```
