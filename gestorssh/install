@@ -172,6 +172,7 @@ else
     echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
     sleep 2
     rm /root/install > /dev/null 2>&1
+    rm /root/bdgestorssh.sql > /dev/null 2>&1
     exit
 fi
 service apache2 restart
@@ -229,4 +230,4 @@ cat /dev/null > ~/.bash_history && history -c
 rm /root/install > /dev/null 2>&1
 rm /root/update > /dev/null 2>&1
 rm /root/gestorssh.zip > /dev/null 2>&1
-rm /root/bdgestorssh.sql
+rm /root/bdgestorssh.sql > /dev/null 2>&1
