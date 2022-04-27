@@ -90,12 +90,12 @@ final(){
 clear
 echo "Login Painel ADMIN: admin"
 echo "Senha Painel ADMIN: admin"
-echo "Acesso Painel ADMIN: $cake/admin"
-echo "Acesso PHPMYADMIN: $cake/phpmyadmin"
+echo "Acesso Painel ADMIN: $ipweb/admin"
+echo "Acesso PHPMYADMIN: $ipweb/phpmyadmin"
 echo "Login PHPMYADMIN: root" 
 echo "senha PHPMYADMIN: $root_password"
 echo "Backup dos dados do PHPMyadmin se encontra no /root/PHPMYADMIN.txt"
-echo "Acesso PHPMYADMIN: $cake/phpmyadmin" >> PHPMYADMINDATA.txt
+echo "Acesso PHPMYADMIN: $ipweb/phpmyadmin" >> PHPMYADMINDATA.txt
 echo "Login PHPMYADMIN: root" >> PHPMYADMINDATA.txt
 echo "senha PHPMYADMIN: $root_password" >> PHPMYADMINDATA.txt
 sleep 10
