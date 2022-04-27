@@ -71,7 +71,6 @@ echo '*/5 * * * * root /var/www/html/pages/system/autobackup.sh' >> /etc/crontab
 /etc/init.d/cron restart > /dev/null 2>&1
 # echo '0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
 # echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
-chmod 777 /var/www/html/admin/pages/apis/backup
 chmod 777 /var/www/html/admin/pages/servidor/ovpn
 chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
@@ -99,4 +98,4 @@ cat /dev/null > ~/.bash_history && history -c
 rm /root/install > /dev/null 2>&1
 rm /root/update > /dev/null 2>&1
 rm /root/gestorssh.zip > /dev/null 2>&1
-rm /root/bdgestorssh.sql
+rm /root/bdgestorssh.sql > /dev/null 2>&1
