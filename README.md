@@ -1,11 +1,11 @@
 # ATUALIZAR PACOTES DO SISTEMA
 ```
-apt-get update -y; apt-get upgrade -y;
+apt-get update -y; apt-get upgrade -y; apt install dos2unix -y;
 ```
 
 # INSTALAR PAINELWEB GESTOR-SSH UBUNTU 18! 
 ```
-apt install dos2unix -y && wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instubuntu && chmod +x instubuntu && dos2unix instubuntu && ./instubuntu
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instubuntu && chmod +x instubuntu && dos2unix instubuntu && ./instubuntu
 ```
 
 # INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8 OU UBUNTU 14! 
