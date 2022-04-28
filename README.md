@@ -5,7 +5,7 @@ apt-get update -y; apt-get upgrade -y;
 
 # INSTALAR PAINELWEB GESTOR-SSH UBUNTU 18! 
 ```
-bash <(wget -qO- github.com/nandoslayer/sshplusnssh/raw/ntech/gestorssh/instubuntu)
+bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instubuntu)
 ```
 
 # INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8 OU UBUNTU 14! 
