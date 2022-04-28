@@ -25,7 +25,7 @@ wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install ; ba
 wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/senharoot ; bash senharoot
 ```
 
-# SINCRONIZAR NA VPS, CASO SEJÁ SSHPLUS PRO!
+# SINCRONIZAR NA VPS, CASO SEJA SSHPLUS PRO!
 ```
 apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincrazy && chmod +x sincrazy && dos2unix sincrazy && ./sincrazy
 ```
