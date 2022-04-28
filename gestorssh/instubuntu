@@ -105,13 +105,13 @@ echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
-echo -e "\E[44;1;37m       INSTALAR O PAINELWEB SSH/DROP/SSL GESTOR-SSH       \E[0m"
+echo -e "\E[44;1;37m       INSTALADOR PAINEL       \E[0m"
 echo ""
 read -p "Digite sua senha de root: " pwdroot
 echo "root:$pwdroot" | chpasswd
 echo "Prosseguindo..." 
 echo "..."
-echo "FINALIZANDO INSTALAÇÃO, PODE DEMORAR"
+echo "Isso irá levar alguns minutos (3 a 10)."
 sleep 2
 inst_base
 phpmadm
@@ -121,18 +121,14 @@ cron_set
 fun_swap
 tst_bkp
 clear
-echo -e "\E[44;1;37m    PAINEL INSTALADO COM SUCESSO!     \E[0m"
-echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
+echo -e "\E[44;1;37m           PAINEL            \E[0m"
 echo ""
-echo -e "\033[1;36m IP DO SEU PAINELWEB:\033[1;37m http://$IP/admin\033[0m"
-echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
-echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
+echo -e "INSTALADO COM SUCESSO!"
 echo ""
-echo -e "\033[1;33m Altere a senha quando logar no painel>> Configuracoes>> Senha Antiga: admin >> Nova Senha: \033[0m"
+echo -e "PAINEL : \033[1;33mhttp://$IP/admin\033[0m"
+echo -e "Login: \033[1;33madmin\033[0m"
+echo -e "Senha: \033[1;33madmin\033[0m"
 echo ""
-echo -e "\033[1;31m A VPS SERÁ REINICIADA EM 10 SEGUNDOS...\033[0m"
-sleep 15
-echo -e "\033[1;31mREINICIANDO...\033[0m"
-shutdown -r now
+echo -e "\033[1;33m Altere a senha ao logar no painel\033[0m"
 cat /dev/null > ~/.bash_history && history -c
 cd $HOME; rm instubuntu > /dev/null 2>&1
