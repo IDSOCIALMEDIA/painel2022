@@ -24,7 +24,7 @@ clear
 echo -e "\n\033[1;32mCONCLUÍDO!\033[0m"
 echo -e ""
 echo -e "\033[1;36mENTRE NO PAINEL E CRIE UMA CONTA SSH PRA VER SE ESTA TUDO OK!\033[0m"
-sleep 3
+sleep 10
 cat /dev/null > ~/.bash_history && history -c && clear
 rm -rf sincpainel* *.zip* > /dev/null 2>&1
 clear
