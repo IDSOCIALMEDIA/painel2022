@@ -15,7 +15,7 @@ wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install ; ba
 
 # SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH! 
 ```
-wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/inst ; bash inst
+wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincpainel ; bash sincpainel
 ```
 
 # ATUALIZAR PARA PAINELWEB GESTOR-SSH, CASO JÁ TENHA OUTRAS VERSÕES DE PAINEL V20 E ETC.. EM DEBIAN 8 OU UBUNTU 14! NÂO TEM NESSECIDADE SE ACABOU DE INSTALAR, JÁ VAI ESTÁ ATUALIZADO! TBM ATUALIZA CASO TENHA NOVAS CONFIGURAÇÕES NO V2022!
