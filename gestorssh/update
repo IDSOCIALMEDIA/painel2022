@@ -85,7 +85,6 @@ if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
 fi
 #
-cd /root mkdir backupsql > /dev/null 2>&1
 clear
 IP=$(wget -qO- ipv4.icanhazip.com)
 clear
