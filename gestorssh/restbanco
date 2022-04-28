@@ -45,18 +45,16 @@ echo ""
 clear
 #
 cd
-if [[ -e "root/sshplus.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
-    rm /root/sshplus.sql
+if [[ -e "$HOME/bdgestorssh.sql" ]]; then
+    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < bdgestorssh.sql
+    rm /root/bdgestorssh.sql
 else
     clear
     echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
     sleep 2
-    rm /root/resbanco > /dev/null 2>&1
-
+    rm /root/install > /dev/null 2>&1
+    rm /root/bdgestorssh.sql > /dev/null 2>&1
     exit
 fi
-echo -e "\E[44;1;37m    BANCO DE DADOS RESTAURADO COM SUCESSO!     \E[0m"
 service apache2 restart
-sleep 2
 clear
