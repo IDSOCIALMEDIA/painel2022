@@ -1,6 +1,5 @@
 #!/bin/bash
 function inst_base {
-apt install figlet -y > /dev/null 2>&1
 apt update > /dev/null 2>&1
 apt dist-upgrade -y > /dev/null 2>&1
 apt install apache2 -y > /dev/null 2>&1
@@ -108,10 +107,6 @@ dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
 echo -e "\E[44;1;37m    INSTALAR O PAINELWEB SSH/DROP/SSL GESTOR-SSH     \E[0m"
 echo ""
-echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
-echo -e "   GESTOR-SSH" | figlet 
-echo -e "                             \033[1;31mPAINELWEB GESTOR-SSH\033[1;36m"
-echo ""
 read -p "Digite sua senha de root: " pwdroot
 echo "root:$pwdroot" | chpasswd
 echo "Prosseguindo..." 
@@ -128,8 +123,7 @@ tst_bkp
 clear
 IP=$(wget -qO- ipv4.icanhazip.com)
 clear
-echo -e "   PAINELWEB" | figlet
-echo -e "      GESTOR-SSH" | figlet
+echo -e "\E[44;1;37m    PAINEL INSTALADO COM SUCESSO!     \E[0m"
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\033[1;36m IP DO SEU PAINELWEB:\033[1;37m http://$IP/admin\033[0m"
