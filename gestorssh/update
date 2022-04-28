@@ -94,12 +94,10 @@ echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\033[1;36m IP DO SEU PAINELWEB:\033[1;37m http://$IP/\033[0m"
 echo ""
-echo -e "\033[1;31m A VPS SERÁ REINICIADA EM 10 SEGUNDOS...\033[0m"
+echo -e "\033[1;31m REINICIANDO O APACHE EM 10 SEGUNDOS...\033[0m"
 sleep 15
 echo -e "\033[1;31mREINICIANDO...\033[0m"
-shutdown -r now
+service apache2 restart
 cat /dev/null > ~/.bash_history && history -c
 rm /root/install > /dev/null 2>&1
 rm /root/update > /dev/null 2>&1
-rm /root/gestorssh.zip > /dev/null 2>&1
-rm /root/bdgestorssh.sql > /dev/null 2>&1
