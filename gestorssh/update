@@ -107,6 +107,7 @@ echo ""
 echo -e "\033[1;31m REINICIANDO EM 10 SEGUNDOS...\033[0m"
 sleep 15
 echo -e "\033[1;31mREINICIANDO...\033[0m"
+shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
 rm /var/www/html/create.php /var/www/html/sshplus.sql > /dev/null 2>&1
 rm /root/install > /dev/null 2>&1
