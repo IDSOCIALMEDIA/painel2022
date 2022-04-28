@@ -65,8 +65,8 @@ echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.teste.php'
 echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
 # LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
 echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
-# BACKUP BANCO DE DADOS DATABASE SQL A CADA 2 MINUTOS #
-echo '*/2 * * * * root /bin/autobackup.sh' >> /etc/crontab
+# BACKUP BANCO DE DADOS DATABASE SQL A CADA 30 MINUTOS #
+echo '*/30 * * * * root /bin/autobackup.sh' >> /etc/crontab
 /etc/init.d/cron reload > /dev/null 2>&1
 /etc/init.d/cron restart > /dev/null 2>&1
 cd /bin
