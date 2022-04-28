@@ -6,15 +6,15 @@ dpkg-reconfigure --frontend noninteractive tzdata
 rm *.sh* > /dev/null 2>&1
 rm *.zip* > /dev/null 2>&1
 apt install unzip -y > /dev/null 2>&1
-wget sshplus.xyz/scripts/utilitarios/syncpainel/sync.tar.bz2 > /dev/null 2>&1
-wget sshplus.xyz/scripts/utilitarios/syncpainel/sync.tar.bz2 > /dev/null 2>&1
-wget sshplus.xyz/scripts/utilitarios/syncpainel/sync.tar.bz2 > /dev/null 2>&1
+wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.001 > /dev/null 2>&1
+wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.002 > /dev/null 2>&1
+wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.003 > /dev/null 2>&1
 cat sshplus.zip* > monitor.zip && zip -F monitor.zip > /dev/null 2>&1
 rm -rf /opt/sshplus > /dev/null 2>&1
 unzip monitor.zip -d  /opt/sshplus/ > /dev/null 2>&1
 chmod 777 /opt/sshplus/*-sync > /dev/null 2>&1
-wget sshplus.xyz/scripts/utilitarios/syncpainel/modulos.zip > /dev/null 2>&1
-unzip modulos.zip > /dev/null 2>&1
+wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sincpainel.zip > /dev/null 2>&1
+unzip sincpainel.zip > /dev/null 2>&1
 chmod 777 *sh > /dev/null 2>&1
 service ssh restart
 echo -e "\n\033[1;32mCONCLUÍDO!\033[0m"
