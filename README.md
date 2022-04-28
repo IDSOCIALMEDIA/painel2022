@@ -25,5 +25,5 @@ wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/gestorssh/up
 
 # DEFINIR/ALTERAR SENHA ROOT
 ```
-wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/senharoot.sh ; bash senharoot.sh
+wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/senharoot ; bash senharoot
 ```
