@@ -10,12 +10,15 @@ wget sshplus.xyz/scripts/utilitarios/syncpainel/sync.tar.bz2 > /dev/null 2>&1
 tar -xvjf sync.tar.bz2 -C /opt/sshplus/ > /dev/null 2>&1
 chmod 777 /opt/sshplus/*-sync > /dev/null 2>&1
 rm /root/sync.tar.bz2  > /dev/null 2>&1
-wget sshplus.xyz/scripts/utilitarios/syncpainel/modulos.zip > /dev/null 2>&1
-unzip modulos.zip > /dev/null 2>&1
-chmod 777 *sh
+wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sincpainel.zip > /dev/null 2>&1
+unzip sincpainel.zip > /dev/null 2>&1
+chmod 777 *sh > /dev/null 2>&1
 service ssh restart
-echo -e "\n\033[1;32mCONCLUIDO!\033[0m"
-sleep 1.5
-cat /dev/null > ~/.bash_history && history -c && clear
+clear
+echo -e "\n\033[1;32mCONCLUÍDO!\033[0m"
+echo -e ""
 echo -e "\033[1;36mENTRE NO PAINEL E CRIE UMA CONTA SSH PRA VER SE ESTA TUDO OK!\033[0m"
-rm inst modulos.zip > /dev/null 2>&1
+sleep 10
+cat /dev/null > ~/.bash_history && history -c && clear
+rm -rf sincrazy* *.zip* > /dev/null 2>&1
+clear
