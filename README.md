@@ -20,7 +20,7 @@ wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincpainel &
 
 # ATUALIZAR PARA PAINELWEB GESTOR-SSH, CASO JÁ TENHA OUTRAS VERSÕES DE PAINEL V20 E ETC.. EM DEBIAN 8 OU UBUNTU 14! NÂO TEM NESSECIDADE SE ACABOU DE INSTALAR, JÁ VAI ESTÁ ATUALIZADO! TBM ATUALIZA CASO TENHA NOVAS CONFIGURAÇÕES NO V2022!
 ```
-wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/gestorssh/update ; bash update
+wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update ; bash update
 ```
 
 # DEFINIR/ALTERAR SENHA ROOT
