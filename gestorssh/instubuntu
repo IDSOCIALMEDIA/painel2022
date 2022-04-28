@@ -31,7 +31,7 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 cd /var/www/html
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip> /dev/null 2>&1
+wget https://github.com/nandoslayer/sshplusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
 chmod -R 777 /var/www/html
@@ -72,7 +72,6 @@ echo "
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.rev.php
 0 */1 * * * /usr/bin/php /var/www/html/pages/system/hist.online.php
 0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
@@ -91,8 +90,8 @@ function fun_swap {
 }
 function tst_bkp {
 cd $HOME
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
+wget -qO- https://github.com/nandoslayer/sshplusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
+wget -qO- https://github.com/nandoslayer/sshplusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
 chmod 777 /bin/usersteste.sh
 chmod 777 /bin/autobackup.sh
 _bnco=$(echo $(openssl rand -hex 5))
@@ -131,4 +130,4 @@ echo -e "Senha: \033[1;33madmin\033[0m"
 echo ""
 echo -e "\033[1;33m Altere a senha ao logar no painel\033[0m"
 cat /dev/null > ~/.bash_history && history -c
-cd $HOME; rm instubuntu > /dev/null 2>&1
+cd $HOME; rm inst20 > /dev/null 2>&1
