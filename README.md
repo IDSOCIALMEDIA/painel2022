@@ -4,6 +4,7 @@ apt-get update -y; apt-get upgrade -y;
 ```
 
 # SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
+# NÃO COMPATÍVEL COM SCRPT SSHPLUS PRO!
 # ATUALIZAÇÃO 28/04/2022.
 ```
 apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincpainel && chmod +x sincpainel && dos2unix sincpainel && ./sincpainel
