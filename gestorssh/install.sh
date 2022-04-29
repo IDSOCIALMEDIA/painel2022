@@ -109,7 +109,7 @@ echo ""
 echo -e "\033[1;31m REINICIANDO O APACHE...\033[0m"
 sleep 1
 echo -e "\033[1;31mREINICIANDO...\033[0m"
-service apache2 restart
+service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
 rm /root/install.sh > /dev/null 2>&1
 rm /root/update > /dev/null 2>&1
