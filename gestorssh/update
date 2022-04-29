@@ -73,7 +73,7 @@ echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php' >> /etc/cr
 echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
 echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
 echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
-echo '0 */1 * * * /usr/bin/php /var/www/html/pages/system/hist.online.php' >> /etc/crontab
+echo '0 */1 * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
 echo '0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
 echo '5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
 rm /bin/usersteste.sh > /dev/null 2>&1
