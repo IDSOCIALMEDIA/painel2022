@@ -58,7 +58,7 @@ echo -e "\033[1;36m FINALIZANDO INSTALAÇÃO\033[0m"
 echo ""
 echo -e "\033[1;33m AGUARDE..."
 echo ""
-
+clear
 cd /var/www/html
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
