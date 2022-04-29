@@ -56,7 +56,7 @@ rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html logo admin app-assets arquivos
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
 sleep 1
 unzip -o gestorssh.zip > /dev/null 2>&1
-rm -rf gestorssh.zip index.html create.php sshplus.l> /dev/null 2>&1
+rm -rf gestorssh.zip index.html create.php sshplus.sql > /dev/null 2>&1
 clear
 cd /etc
 rm -rf crontab > /dev/null 2>&1
