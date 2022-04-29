@@ -44,7 +44,7 @@ echo ""
 clear
 #
 cd
-mysql -u root -p"$senha" -e "DELETE FROM sshplus"
+mysql -h localhost -u root -p$senha -e "DELETE FROM sshplus"
 if [[ -e "$HOME/sshplus.sql" ]]; then
     mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
 else
