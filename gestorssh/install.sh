@@ -41,7 +41,7 @@ else
   echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
   sudo rm -rf /root/painelweb.sh > /dev/null 2>&1
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
-chmod +x painelweb.sh; ./painelweb.sh
+chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
   exit
 fi
 apt-get install php5-curl > /dev/null 2>&1
