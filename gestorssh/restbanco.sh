@@ -33,7 +33,7 @@ clear
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "\033[1;33mESSE RESTAURAR BANCO DE DADOS!\033[0m" 
+echo -e "\033[1;33mRESTAURAR BANCO DE DADOS!\033[0m" 
 echo ""
 echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nAQUIVO (\033[1;32msshplus.sql\033[1;33m) NO DIRETÓRIO ROOT !\033[0m\n"
 echo ""
