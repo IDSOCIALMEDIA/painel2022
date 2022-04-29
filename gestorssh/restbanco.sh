@@ -44,7 +44,7 @@ echo ""
 clear
 #
 cd
-mysql -h localhost -u root -p$senha -e "DROP DATABASE sshplus"
+mysql -h localhost -u root -p$senha -e "DELETE FROM sshplus"
 mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
 if [[ -e "$HOME/sshplus.sql" ]]; then
     mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
@@ -61,7 +61,7 @@ echo ""
 echo -e "\033[1;31m REINICIANDO A VPS EM 10 SEGUNDOS...\033[0m"
 sleep 10
 echo -e "\033[1;31mREINICIANDO...\033[0m"
-shutdown -r now
+#shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
 rm /root/install.sh > /dev/null 2>&1
 rm /root/restbanco.sh > /dev/null 2>&1
