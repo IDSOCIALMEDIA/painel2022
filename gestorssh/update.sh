@@ -65,7 +65,7 @@ chmod 777 /etc/crontab
 sleep 1
 clear
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php ' >> /etc/crontab
+echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
 echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
