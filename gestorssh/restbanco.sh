@@ -64,7 +64,5 @@ sleep 10
 echo -e "\033[1;31mREINICIANDO...\033[0m"
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
-rm /root/install.sh > /dev/null 2>&1
-rm /root/restbanco.sh > /dev/null 2>&1
-rm /root/painelweb.sh > /dev/null 2>&1
-exit
+rm /root/*.sh* > /dev/null 2>&1
+clear
