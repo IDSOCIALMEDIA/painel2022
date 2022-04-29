@@ -30,38 +30,34 @@ echo ""
 clear
 #
 clear
-echo -e "\E[44;1;37m    RESTAURAR BANCO DE DADOS     \E[0m"
-echo ""
-echo -e "\E[44;1;37m    Copie o arquivo (sshplus.sql) para dendro da pasta root     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
+echo -e "\033[1;33mESSE RESTAURAR BANCO DE DADOS!\033[0m" 
 echo ""
-echo -ne "\033[1;32m INFORME A SENHA DO MYSQL\033[1;37m: "; read senha
-echo -e "   \033[1;32mOK\033[1;37m"
-echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "; read empresa
-echo -e "   \033[1;32mOK\033[1;37m"
+echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nAQUIVO (\033[1;32msshplus.sql\033[1;33m) NO DIRETÓRIO ROOT !\033[0m\n"
 echo ""
-clear
-#
-cd
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/home.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/index.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
-mysql -h localhost -u root -p$senha -e "DROP DATABASE sshplus"
-mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
-if [[ -e "$HOME/sshplus.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
-else
-    clear
-    echo -e "\033[1;31m VC NÃO POSSUI UM BANCO DE DADOS PARA IMPORTAR\033[0m"
-    sleep 2
-    exit
-fi
+echo -ne "\033[1;32mEnter para continuar...\033[0m"; read
+
+[[ ! -e /var/www/html/pages/system/pass.php ]] && {
+	echo -e "\n\033[1;31mO PAINEL NÃO ESTÁ INSTALADO !\033[0m"; exit 0
+}
+
+[[ ! -e $HOME/sshplus.sql ]] && {
+	echo -e "\n\033[1;31mARQUIVO (\033[1;32msshplus.sql\033[1;31m) NÃO ENCONTRADO !\033[0m"; exit 0
+}
+
+passdb=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
+[[ $(mysql -h localhost -u root -p$passdb -e "show databases" | grep -wc sshplus) == '0' ]] && {
+	echo -e "\n\033[1;31mSEU PAINEL NÃO É COMPATÍVEL !\033[0m"; exit 0
+}
+
+mysql -h localhost -u root -p$passdb -e "drop database sshplus"
+mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE sshplus'
+mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < sshplus.sql
+echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
+echo ""
+echo -e "\n\033[1;32mBACKUP RESTAURADO COM SUCESSO!\033[0m"
 echo ""
 echo -e "\033[1;31m REINICIANDO A VPS EM 10 SEGUNDOS...\033[0m"
 sleep 10
