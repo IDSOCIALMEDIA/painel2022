@@ -40,6 +40,8 @@ echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
 echo ""
 echo -ne "\033[1;32m INFORME A SENHA DO MYSQL\033[1;37m: "; read senha
 echo -e "   \033[1;32mOK\033[1;37m"
+echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "; read empresa
+echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
 clear
 #
