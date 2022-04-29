@@ -46,6 +46,12 @@ echo ""
 clear
 #
 cd
+sed -i "s;EMPRESA;$empresa;g" /var/www/html/home.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresa;g" /var/www/html/index.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
 mysql -h localhost -u root -p$senha -e "DROP DATABASE sshplus"
 mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
 if [[ -e "$HOME/sshplus.sql" ]]; then
