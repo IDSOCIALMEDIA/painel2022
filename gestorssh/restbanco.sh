@@ -37,7 +37,7 @@ echo -e "\033[1;33mESSE RESTAURAR BANCO DE DADOS!\033[0m"
 echo ""
 echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nAQUIVO (\033[1;32msshplus.sql\033[1;33m) NO DIRETÓRIO ROOT !\033[0m\n"
 echo ""
-echo -ne "\033[1;32mEnter para continuar...\033[0m"; read
+echo -ne "\033[1;32mDE UM ENTER PRA CONTINUAR...\033[0m"; read
 
 [[ ! -e /var/www/html/pages/system/pass.php ]] && {
 	echo -e "\n\033[1;31mO PAINEL NÃO ESTÁ INSTALADO !\033[0m"; exit 0
