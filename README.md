@@ -1,8 +1,3 @@
-# ATUALIZAR PACOTES DO SISTEMA
-```
-apt-get update -y; apt-get upgrade -y;
-```
-
 # SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
 # ATUALIZAÇÃO 28/04/2022.
 ```
