@@ -135,7 +135,7 @@ case "$x" in
    exit;
    ;;
    *)
-   echo -e "\n\033[1;31mOpcao inválida !\033[0m"
+   echo -e "\n\033[1;31mOpção inválida !\033[0m"
    sleep 2
 esac
 done
