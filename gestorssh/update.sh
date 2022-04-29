@@ -106,11 +106,18 @@ echo -e "\033[1;36m PARA ENTRAR NO PAINELWEB DIGITE ESSE IP NO NAVEGADOR:\033[1;
 echo ""
 echo -e "\033[1;31m REINICIANDO EM 10 SEGUNDOS...\033[0m"
 sleep 10
+echo -e "\033[1;31m REINICIANDO O APACHE EM 10 SEGUNDOS...\033[0m"
+sleep 10
 echo -e "\033[1;31mREINICIANDO...\033[0m"
-shutdown -r now
+service apache2 restart
 cat /dev/null > ~/.bash_history && history -c
-rm /var/www/html/create.php /var/www/html/sshplus.sql > /dev/null 2>&1
-rm /root/install > /dev/null 2>&1
+rm /root/install.sh > /dev/null 2>&1
 rm /root/update > /dev/null 2>&1
+rm /root/painelweb.sh > /dev/null 2>&1
+rm /var/www/html/create.php /var/www/html/sshplus.sql > /dev/null 2>&1
+sudo rm -rf /root/restbanco.sh > /dev/null 2>&1
 clear
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/empresa.sh > /dev/null 2>&1
+chmod +x empresa.sh && dos2unix empresa.sh && ./empresa.sh
+exit
 
