@@ -44,6 +44,9 @@ painel_inst () {
 painel_att () {
     wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh > /dev/null 2>&1; chmod +x update.sh && dos2unix update.sh && ./update.sh
 }
+painel_rest () {
+    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh > /dev/null 2>&1; chmod +x update.sh && dos2unix update.sh && ./update.sh
+}
 
 ##PAINIL REMOVE
 remove_painel () {
@@ -68,13 +71,16 @@ sudo service apache2 stop
 echo -e "$barra"
 echo -e "\033[1;36mPAINEL REMOVIDO COM ÊXITO \033[1;32m[!OK]"
 echo -e "$barra"
+rm /root/*.sh* > /dev/null 2>&1
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
+chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
 }
 
 ##CLEAN HTML FOLDER
 clean_htmlfolder () {
 clear
 echo -e "$barra"
-echo -e "\E[41;1;37m         LIMPAR A PASTA HTML                          \E[0m"
+echo -e "\E[41;1;37m         OTIMIZANDO A PASTA HTML PARA INSTALAÇÃO        \E[0m"
 echo -e "$barra"
 echo -e " "
 echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mATUALIZANDO"; fun_prog 'fun_update'
@@ -86,7 +92,7 @@ echo -e " "
 echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mRETORNANDO"; fun_prog 'sleep 3'
 sleep 1
 echo -e " "
-sudo rm -rf /root/painelweb.sh > /dev/null 2>&1
+rm /root/*.sh* > /dev/null 2>&1
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
 chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
 }
@@ -99,8 +105,9 @@ echo -e "\E[41;1;37m         INSTALAR E ATUALIZAR PAINEL GESTOR-SSH         \E[0
 echo -e "$barra"
 echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37  \033[1;33mINSTALAR PAINEL GESTOR-SSH     \033[1;32m(FINAL 29/04/2022) 
 \033[1;31m[\033[1;36m02\033[1;31m] \033[1;37  \033[1;33mATUALIZAR PAINEL GESTOR-SSH    \033[1;31m(TESTE 03/05/2022)
-\033[1;31m[\033[1;36m03\033[1;31m] \033[1;37  \033[1;33mLIMPAR A PASTA HTML 
-\033[1;31m[\033[1;36m04\033[1;31m] \033[1;37  \033[1;33mREMOVER PAINEL
+\033[1;31m[\033[1;36m03\033[1;31m] \033[1;37  \033[1;33mOTIMIZAR A PASTA HTML 
+\033[1;31m[\033[1;36m04\033[1;31m] \033[1;37  \033[1;33mREMOVER PAINEL ANTIGO
+\033[1;31m[\033[1;36m05\033[1;31m] \033[1;37  \033[1;33mRESTAURAR BANCO DE DADOS
 \033[1;31m[\033[1;36m00\033[1;31m] \033[1;37  \033[1;33mSAIR \033[1;32m<\033[1;33m<\033[1;31m<\033[0m \033[0m"
 echo -e "$barra"
 echo ""
@@ -125,6 +132,11 @@ case "$x" in
    4 | 04)
    clear
    remove_painel
+   exit;
+   ;;
+   5 | 05)
+   clear
+   painel_rest
    exit;
    ;;
    0 | 00)
