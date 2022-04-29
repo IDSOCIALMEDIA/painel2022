@@ -69,16 +69,21 @@ sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
 fi
 sleep 1
 cd
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/BD-Painel-vXX.sql > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/bdgestorssh.sql > /dev/null 2>&1
 sleep 1
-if [[ -e "$HOME/BD-Painel-vXX.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < BD-Painel-vXX.sql
-    rm /root/BD-Painel-vXX.sql
+if [[ -e "$HOME/bdgestorssh.sql" ]]; then
+    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < bdgestorssh.sql
+    rm /root/bdgestorssh.sql
 else
     clear
-    echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
+    echo -e "\033[1;31m ERRO AO RESTARAR BANCO DE DADOS\033[0m"
     sleep 2
-    rm /root/install > /dev/null 2>&1
+    service apache2 restart > /dev/null 2>&1
+cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
+chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
+clear
     exit
 fi
 clear
