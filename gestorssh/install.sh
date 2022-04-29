@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 clear
 echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
