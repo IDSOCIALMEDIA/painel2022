@@ -64,6 +64,7 @@ clear
 cd /etc
 rm -rf crontab > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/crontab > /dev/null 2>&1
+chmod 777 /etc/crontab
 sleep 1
 clear
 echo '* * * * * /bin/usersteste.sh' >> /etc/crontab
