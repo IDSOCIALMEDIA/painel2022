@@ -104,8 +104,6 @@ echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\033[1;36m PARA ENTRAR NO PAINELWEB DIGITE ESSE IP NO NAVEGADOR:\033[1;37m http://$IP\033[0m"
 echo ""
-echo -e "\033[1;31m REINICIANDO EM 10 SEGUNDOS...\033[0m"
-sleep 10
 echo -e "\033[1;31m REINICIANDO O APACHE EM 10 SEGUNDOS...\033[0m"
 sleep 10
 echo -e "\033[1;31mREINICIANDO...\033[0m"
