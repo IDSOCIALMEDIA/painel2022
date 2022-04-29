@@ -1,18 +1,12 @@
 # SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
-# ATUALIZAÇÃO 28/04/2022.
+# ATUALIZAÇÃO 29/04/2022.
 ```
 apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincpainel && chmod +x sincpainel && dos2unix sincpainel && ./sincpainel
 ```
 
-# ATUALIZAÇÃO PAINELWEB GESTOR-SSH, TBM FUNCIONA EM OUTRAS VERSÕES DE PAINEL V20 E ETC... EM DEBIAN 8 OU UBUNTU 14!
-# ATUALIZAÇÃO 28/04/2022.
+# INSTALAR OU ATUALIZAR PAINELWEB GESTOR-SSH DEBIAN 8 OU UBUNTU 14! ATUALIZAÇÃO 29/04/2022.
 ```
-apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update && chmod +x update && dos2unix update && ./update
-```
-
-# INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8 OU UBUNTU 14!
-```
-apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install.sh && chmod +x install.sh && dos2unix install.sh && ./install.sh
+apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh && chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
 ```
 
 # DEFINIR/ALTERAR SENHA ROOT
