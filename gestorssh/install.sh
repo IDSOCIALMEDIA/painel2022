@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 clear
 echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
@@ -39,7 +39,9 @@ if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
 else
   clear
   echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
-  rm $HOME/install.sh
+  sudo rm -rf /root/painelweb.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
+chmod +x painelweb.sh; ./painelweb.sh
   exit
 fi
 apt-get install php5-curl > /dev/null 2>&1
@@ -104,10 +106,14 @@ echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;31m REINICIANDO EM 10 SEGUNDOS...\033[0m"
+echo -e "\033[1;31m REINICIANDO O APACHE EM 10 SEGUNDOS...\033[0m"
 sleep 10
 echo -e "\033[1;31mREINICIANDO...\033[0m"
-shutdown -r now
+service apache2 restart
 cat /dev/null > ~/.bash_history && history -c
 rm /root/install.sh > /dev/null 2>&1
 rm /root/update > /dev/null 2>&1
+sudo rm -rf /root/restbanco.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
+chmod +x restbanco.sh; ./restbanco.sh
+exit
