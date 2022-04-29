@@ -45,7 +45,7 @@ painel_att () {
     wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh > /dev/null 2>&1; chmod +x update.sh && dos2unix update.sh && ./update.sh
 }
 painel_rest () {
-    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh > /dev/null 2>&1; chmod +x update.sh && dos2unix update.sh && ./update.sh
+    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1; chmod +x restbanco.sh && dos2unix restbanco.sh && ./restbanco.sh
 }
 
 ##PAINIL REMOVE
