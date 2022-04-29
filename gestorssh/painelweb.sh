@@ -1,5 +1,5 @@
 #!/bin/bash
-barra="\033[0m🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\033[0m"
+barra="\033[0m🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\033[0m"
 
 fun_prog ()
 {
@@ -97,7 +97,7 @@ clear
 echo -e "$barra"
 echo -e "\E[41;1;37m         INSTALAR E ATUALIZAR PAINEL GESTOR-SSH         \E[0m"
 echo -e "$barra"
-echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37 \033[1;33mINSTALAR PAINEL GESTOR-SSH      \033[1;31m(FINAL) 
+echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37 \033[1;33mINSTALAR PAINEL GESTOR-SSH   \033[1;31m(FINAL) 
 \033[1;31m[\033[1;36m02\033[1;31m] \033[1;37 \033[1;33mATUALIZAR PAINEL GESTOR-SSH    \033[1;32m(BETA) 
 \033[1;31m[\033[1;36m03\033[1;31m] \033[1;37 \033[1;33mLIMPAR A PASTA HTML 
 \033[1;31m[\033[1;36m04\033[1;31m] \033[1;37 \033[1;33mREMOVER PAINEL
