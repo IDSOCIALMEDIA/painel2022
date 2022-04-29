@@ -56,16 +56,16 @@ echo -e "\033[1;32m SEMPRE CONFIRME COM \033[1;37mY"
 echo -e "\033[1;32m PROSSIGA COM \033[1;37mENTER"
 echo -e "$barra"
 sleep 7
-sudo service apache2 stop
-sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
-sudo rm -rf /etc/mysql /var/lib/mysql
-sudo rm -rf /var/www/html
-sudo apt-get autoremove
-sudo apt-get autoclean
+service apache2 stop
+apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+rm -rf /etc/mysql /var/lib/mysql
+rm -rf /var/www/html
+apt-get autoremove
+apt-get autoclean
 apt-get install apache2 -y &>/dev/null
 sed -i "s;Listen 80;Listen 81;g" /etc/apache2/ports.conf
 service apache2 restart > /dev/null 2>&1
-sudo service apache2 stop
+service apache2 stop
 [[ ! -d /var/www ]] && mkdir /var/www
 [[ ! -d /var/www/html ]] && mkdir /var/www/html
 echo -e "$barra"
