@@ -77,13 +77,13 @@ echo -e "$barra"
 echo -e "\E[41;1;37m         LIMPAR A PASTA HTML                   \E[0m"
 echo -e "$barra"
 echo -e " "
-echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mATUALIZANDO... "; fun_prog 'fun_update'
+echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mATUALIZANDO"; fun_prog 'fun_update'
 echo -e " "
-echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mOTIMIZANDO... "; fun_prog 'fun_upgrade'
+echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mOTIMIZANDO"; fun_prog 'fun_upgrade'
 echo -e " "
-echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mLIMPANDO PASTA HTML... "; fun_prog 'fun_limpiarepositorios'
+echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mLIMPANDO PASTA HTML"; fun_prog 'fun_limpiarepositorios'
 echo -e " "
-echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mRETORNANDO... "; fun_prog 'sleep 3'
+echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mRETORNANDO"; fun_prog 'sleep 3'
 sleep 1
 echo -e " "
 sudo rm -rf /root/painelweb.sh > /dev/null 2>&1
