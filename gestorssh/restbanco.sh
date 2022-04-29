@@ -35,26 +35,32 @@ echo ""
 echo -e "\E[44;1;37m    Copie o arquivo (sshplus.sql) para dendro da pasta root     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
-echo -e "   GESTOR-SSH" | figlet
 echo ""
 echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
 echo ""
 echo -ne "\033[1;32m INFORME A SENHA DO MYSQL\033[1;37m: "; read senha
-echo -e "\033[1;32mOK\033[1;37m"
+echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
 clear
 #
 cd
-if [[ -e "$HOME/bdgestorssh.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < bdgestorssh.sql
-    rm /root/bdgestorssh.sql
+if [[ -e "$HOME/sshplus.sql" ]]; then
+    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
 else
     clear
     echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
     sleep 2
-    rm /root/install > /dev/null 2>&1
-    rm /root/bdgestorssh.sql > /dev/null 2>&1
+     sudo rm -rf /root/restbanco.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
+chmod +x restbanco.sh; ./restbanco.sh
     exit
 fi
-service apache2 restart
-clear
+echo ""
+echo -e "\033[1;31m REINICIANDO A VPS EM 10 SEGUNDOS...\033[0m"
+sleep 10
+echo -e "\033[1;31mREINICIANDO...\033[0m"
+shutdown -r now
+cat /dev/null > ~/.bash_history && history -c
+rm /root/install.sh > /dev/null 2>&1
+rm /root/restbanco.sh > /dev/null 2>&1
+rm /root/painelweb.sh > /dev/null 2>&1
