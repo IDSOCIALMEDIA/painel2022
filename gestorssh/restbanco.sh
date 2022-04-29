@@ -58,11 +58,8 @@ if [[ -e "$HOME/sshplus.sql" ]]; then
     mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
 else
     clear
-    echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
+    echo -e "\033[1;31m VC NÃO POSSUI UM BANCO DE DADOS PARA IMPORTAR\033[0m"
     sleep 2
-     sudo rm -rf /root/restbanco.sh > /dev/null 2>&1
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
-chmod +x restbanco.sh; ./restbanco.sh
     exit
 fi
 echo ""
