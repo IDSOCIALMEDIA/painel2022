@@ -39,7 +39,7 @@ if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
 else
   clear
   echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
-  sudo rm -rf /root/painelweb.sh > /dev/null 2>&1
+  rm /root/*.sh* > /dev/null 2>&1
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
 chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
   exit
@@ -111,10 +111,7 @@ sleep 1
 echo -e "\033[1;31mREINICIANDO...\033[0m"
 service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
-rm /root/install.sh > /dev/null 2>&1
-rm /root/update > /dev/null 2>&1
-rm /root/painelweb.sh > /dev/null 2>&1
-sudo rm -rf /root/restbanco.sh > /dev/null 2>&1
+rm /root/*.sh* > /dev/null 2>&1
 clear
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/empresa.sh > /dev/null 2>&1
 chmod +x empresa.sh && dos2unix empresa.sh && ./empresa.sh
