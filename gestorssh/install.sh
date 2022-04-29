@@ -113,6 +113,7 @@ service apache2 restart
 cat /dev/null > ~/.bash_history && history -c
 rm /root/install.sh > /dev/null 2>&1
 rm /root/update > /dev/null 2>&1
+rm /root/painelweb.sh > /dev/null 2>&1
 sudo rm -rf /root/restbanco.sh > /dev/null 2>&1
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
 chmod +x restbanco.sh; ./restbanco.sh
