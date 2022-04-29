@@ -39,10 +39,10 @@ sudo rm -rf /var/www/html
 
 ##INSTALAR PAINEL
 painel_inst () {
-    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install.sh > /dev/null 2>&1; chmod +x install.sh; ./install.sh
+    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install.sh > /dev/null 2>&1; chmod +x install.sh && dos2unix install.sh && ./install.sh
 }
 painel_att () {
-    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh > /dev/null 2>&1; chmod +x update.sh; ./update.sh
+    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh > /dev/null 2>&1; chmod +x update.sh && dos2unix update.sh && ./update.sh
 }
 
 ##PAINIL REMOVE
