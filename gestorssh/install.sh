@@ -68,10 +68,19 @@ if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
 fi
 sleep 1
-IP=$(wget -qO- ipv4.icanhazip.com)
-curl $IP/create.php > /dev/null 2>&1
-rm /var/www/html/create.php /var/www/html/sshplus.sql
+cd
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/painelVXX/BD-Painel-vXX.sql > /dev/null 2>&1
 sleep 1
+if [[ -e "$HOME/BD-Painel-vXX.sql" ]]; then
+    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < BD-Painel-vXX.sql
+    rm /root/BD-Painel-vXX.sql
+else
+    clear
+    echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
+    sleep 2
+    rm /root/install > /dev/null 2>&1
+    exit
+fi
 clear
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php' >> /etc/crontab
