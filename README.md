@@ -17,7 +17,7 @@ apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plus
 
 # INSTALAR PAINELWEB GESTOR-SSH DEBIAN 8 OU UBUNTU 14!
 ```
-wget raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install.sh ; bash install.sh
+apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install.sh && chmod +x install.sh && dos2unix install.sh && ./install.sh
 ```
 
 # DEFINIR/ALTERAR SENHA ROOT
