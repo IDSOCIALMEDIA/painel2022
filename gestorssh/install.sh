@@ -91,8 +91,8 @@ chmod 777 /bin/usersteste.sh
 chmod 777 /bin/autobackup.sh
 _bnco=$(echo $(openssl rand -hex 5))
 sed -i "s;bancodir;$_bnco;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
-sed -i "s;bancodir;$_bnco;g" /bin/autobackup.sh > /dev/null 2>&1
-mkdir /root/$_bnco
+mkdir /root/backupsql
+chmod 777 /root/backupsql
 chmod 777 /var/www/html/admin/pages/servidor/ovpn
 chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
