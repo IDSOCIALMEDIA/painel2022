@@ -73,8 +73,8 @@ echo '0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh &&
 echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
 # LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
 echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
-# BACKUP BANCO DE DADOS DATABASE SQL A CADA 2 MINUTOS #
-echo '*/2 * * * * root /bin/autobackup.sh' >> /etc/crontab
+# BACKUP BANCO DE DADOS DATABASE SQL A CADA 5 MINUTOS #
+echo '*/5 * * * * root /bin/autobackup.sh' >> /etc/crontab
 echo '* * * * * /bin/usersteste.sh' >> /etc/crontab
 rm /bin/usersteste.sh > /dev/null 2>&1
 rm /bin/autobackup.sh > /dev/null 2>&1
