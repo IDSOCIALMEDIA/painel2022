@@ -64,18 +64,21 @@ wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/crontab > /dev/
 chmod 777 /etc/crontab
 sleep 1
 clear
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
-echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
-echo '0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
-echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
+crontab -e
+* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php
+* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php
+* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php
+* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
+10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php
+0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
+5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root
 # LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
-echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
+*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
 # BACKUP BANCO DE DADOS DATABASE SQL A CADA 5 MINUTOS #
-echo '*/5 * * * * root /bin/autobackup.sh' >> /etc/crontab
-echo '* * * * * /bin/usersteste.sh' >> /etc/crontab
+*/5 * * * * root /bin/autobackup.sh
+* * * * * /bin/usersteste.sh
+:wq
+clear
 rm /bin/usersteste.sh > /dev/null 2>&1
 rm /bin/autobackup.sh > /dev/null 2>&1
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
