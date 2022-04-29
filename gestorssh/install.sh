@@ -50,7 +50,7 @@ clear
 echo ""
 echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
 echo ""
-echo -ne "\033[1;32m INFORME A MESMA SENHA QUE DEFINIU\033[1;37m: "; read senha
+echo -ne "\033[1;32m INFORME A MESMA SENHA\033[1;37m: "; read senha
 sleep 1
 mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
 clear
@@ -98,7 +98,7 @@ chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
 chmod 777 /var/www/html/backups
 sleep 1
-echo -e "\033[1;32m PAINEL-SSH INSTALADO COM SUCESSO!"
+echo -e "\033[1;32m GESTOR-SSH INSTALADO COM SUCESSO!"
 echo ""
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
@@ -106,8 +106,8 @@ echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;31m REINICIANDO O APACHE EM 10 SEGUNDOS...\033[0m"
-sleep 10
+echo -e "\033[1;31m REINICIANDO O APACHE...\033[0m"
+sleep 1
 echo -e "\033[1;31mREINICIANDO...\033[0m"
 service apache2 restart
 cat /dev/null > ~/.bash_history && history -c
@@ -116,6 +116,6 @@ rm /root/update > /dev/null 2>&1
 rm /root/painelweb.sh > /dev/null 2>&1
 sudo rm -rf /root/restbanco.sh > /dev/null 2>&1
 clear
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
-chmod +x restbanco.sh && dos2unix restbanco.sh && ./restbanco.sh
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/empresa.sh > /dev/null 2>&1
+chmod +x empresa.sh && dos2unix empresa.sh && ./empresa.sh
 exit
