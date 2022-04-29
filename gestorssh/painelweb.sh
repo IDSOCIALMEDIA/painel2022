@@ -130,6 +130,7 @@ case "$x" in
    0 | 00)
    echo -e "\033[1;31mSaindo...\033[0m"
    sleep 2
+   sudo rm -rf /root/painelweb.sh > /dev/null 2>&1
    clear
    exit;
    ;;
