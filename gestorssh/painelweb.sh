@@ -74,7 +74,7 @@ echo -e "$barra"
 clean_htmlfolder () {
 clear
 echo -e "$barra"
-echo -e "\E[41;1;37m        â‡± LIMPAR A PASTA HTML â‡²                  \E[0m"
+echo -e "\E[41;1;37m         LIMPAR A PASTA HTML                   \E[0m"
 echo -e "$barra"
 echo -e " "
 echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mATUALIZANDO... "; fun_prog 'fun_update'
