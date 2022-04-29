@@ -50,13 +50,14 @@ sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
 sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
 sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
 echo ""
-echo -e "\033[1;31m REINICIANDO A VPS EM 10 SEGUNDOS...\033[0m"
-sleep 10
+echo -e "\033[1;31m REINICIANDO O APACHE...\033[0m"
+sleep 2
 echo -e "\033[1;31mREINICIANDO...\033[0m"
 shutdown -r now
+wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
+chmod +x restbanco.sh && dos2unix restbanco.sh && ./restbanco.sh
 cat /dev/null > ~/.bash_history && history -c
 rm /root/install.sh > /dev/null 2>&1
-rm /root/restbanco.sh > /dev/null 2>&1
 rm /root/painelweb.sh > /dev/null 2>&1
 rm /root/empresa.sh > /dev/null 2>&1
 exit
