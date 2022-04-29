@@ -73,20 +73,22 @@ curl $IP/create.php > /dev/null 2>&1
 rm /var/www/html/create.php /var/www/html/sshplus.sql
 sleep 1
 clear
+echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
+echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php ' >> /etc/crontab
+echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
+echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
+echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
+echo '0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
+echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
+# LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
+echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
+# BACKUP BANCO DE DADOS DATABASE SQL A CADA 2 MINUTOS #
+echo '*/2 * * * * root /bin/autobackup.sh' >> /etc/crontab
 echo '* * * * * /bin/usersteste.sh' >> /etc/crontab
-echo '0 */4 * * * /bin/autobackup.sh' >> /etc/crontab
-echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
-echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php' >> /etc/crontab
-echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
-echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
-echo '* * * * * /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
-echo '0 */1 * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
-echo '0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
-echo '5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
 rm /bin/usersteste.sh > /dev/null 2>&1
 rm /bin/autobackup.sh > /dev/null 2>&1
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
+wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
 chmod 777 /bin/usersteste.sh
 chmod 777 /bin/autobackup.sh
 _bnco=$(echo $(openssl rand -hex 5))
