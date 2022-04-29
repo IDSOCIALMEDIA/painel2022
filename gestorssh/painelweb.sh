@@ -88,7 +88,7 @@ sleep 1
 echo -e " "
 sudo rm -rf /root/painelweb.sh > /dev/null 2>&1
 wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
-chmod +x painelweb.sh; ./painelweb.sh
+chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
 }
 
 while true $x != "ok"
