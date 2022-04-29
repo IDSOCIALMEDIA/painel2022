@@ -46,10 +46,7 @@ echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo -e "   GESTOR-SSH" | figlet
 echo ""
-echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
-echo ""
-echo -ne "\033[1;32m INFORME A SENHA DO MYSQL\033[1;37m: "; read senha
-echo -e "\033[1;32mOK\033[1;37m"
+senha=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 echo ""
 clear
 #
@@ -103,7 +100,7 @@ echo -e "   PAINELWEB" | figlet
 echo -e "      GESTOR-SSH" | figlet
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "\033[1;36m PARA ENTRAR NO PAINELWEB DIGITE ESSE IP NO NAVEGADOR:\033[1;37m http://$IP\033[0m"
+echo -e "\033[1;36m PAINELWEB DIGITE ESSE IP NO NAVEGADOR:\033[1;37m http://$IP/admin\033[0m"
 echo ""
 echo -e "\033[1;31m REINICIANDO O APACHE EM 10 SEGUNDOS...\033[0m"
 sleep 10
