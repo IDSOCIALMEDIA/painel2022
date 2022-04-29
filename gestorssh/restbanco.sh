@@ -44,8 +44,7 @@ echo ""
 clear
 #
 cd
-mysql -u root -p"$senha" -e "DELETE FROM mysql.db WHERE Db='sshplus' OR Db='sshplus\_%'"
-mysql -u root -p"$senha" -e "CREATE DATABASE sshplus;"
+mysql -u root -p"$senha" -e "DELETE FROM mysql.db WHERE Db='sshplus\_%'"
 if [[ -e "$HOME/sshplus.sql" ]]; then
     mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < sshplus.sql
 else
