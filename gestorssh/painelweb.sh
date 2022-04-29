@@ -29,7 +29,7 @@ fun_upgrade () {
 
 fun_limpiarepositorios () {
 ##LIMPA ROOT
-sudo rm -rf /root/install.sh > /dev/null 2>&1
+sudo rm -rf /root/*.sh* > /dev/null 2>&1
 ##LIMPA HTML
 sudo rm -rf /var/www/html
 [[ ! -d /var ]] && mkdir /var
