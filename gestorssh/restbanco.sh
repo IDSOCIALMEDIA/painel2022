@@ -40,16 +40,40 @@ echo ""
 echo -ne "\033[1;32mDE UM ENTER PRA CONTINUAR...\033[0m"; read
 
 [[ ! -e /var/www/html/pages/system/pass.php ]] && {
-	echo -e "\n\033[1;31mO PAINEL NÃO ESTÁ INSTALADO !\033[0m"; exit 0
+	echo -e "\n\033[1;31mO PAINEL NÃO ESTÁ INSTALADO !\033[0m"
+	echo ""
+echo -e "\033[1;31m REINICIANDO A VPS EM 10 SEGUNDOS...\033[0m"
+sleep 10
+echo -e "\033[1;31mREINICIANDO...\033[0m"
+shutdown -r now
+cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+clear; exit 0
 }
 
 [[ ! -e $HOME/sshplus.sql ]] && {
-	echo -e "\n\033[1;31mARQUIVO (\033[1;32msshplus.sql\033[1;31m) NÃO ENCONTRADO !\033[0m"; exit 0
+	echo -e "\n\033[1;31mARQUIVO (\033[1;32msshplus.sql\033[1;31m) NÃO ENCONTRADO !\033[0m"
+	echo ""
+echo -e "\033[1;31m REINICIANDO A VPS EM 10 SEGUNDOS...\033[0m"
+sleep 10
+echo -e "\033[1;31mREINICIANDO...\033[0m"
+shutdown -r now
+cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+clear; exit 0
 }
 
 passdb=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 [[ $(mysql -h localhost -u root -p$passdb -e "show databases" | grep -wc sshplus) == '0' ]] && {
-	echo -e "\n\033[1;31mSEU PAINEL NÃO É COMPATÍVEL !\033[0m"; exit 0
+	echo -e "\n\033[1;31mSEU PAINEL NÃO É COMPATÍVEL !\033[0m"
+	echo ""
+echo -e "\033[1;31m REINICIANDO A VPS EM 10 SEGUNDOS...\033[0m"
+sleep 10
+echo -e "\033[1;31mREINICIANDO...\033[0m"
+shutdown -r now
+cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+clear; exit 0
 }
 
 mysql -h localhost -u root -p$passdb -e "drop database sshplus"
