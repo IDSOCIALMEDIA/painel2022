@@ -28,7 +28,7 @@ fun_atpweb () {
     apt-get install figlet -y > /dev/null 2>&1
     rm -rf /bin/pweb > /dev/null 2>&1
     wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /bin/pweb > /dev/null 2>&1
-chmod 777 /bin/pweb > /dev/null 2>&1
+    chmod 777 /bin/pweb > /dev/null 2>&1
 }
 
 fun_limpiarepositorios () {
