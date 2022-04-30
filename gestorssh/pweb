@@ -18,16 +18,16 @@ fun_prog ()
 }
 
 fun_update () {
-    apt-get update -y
+    apt-get update -y > /dev/null 2>&1
 }
 
 fun_upgrade () {
-    apt-get upgrade -y
+    apt-get upgrade -y > /dev/null 2>&1
 }
 fun_atpweb () {
     rm -rf /bin/pweb > /dev/null 2>&1
-    wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /bin/pweb
-chmod 777 /bin/pweb
+    wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /bin/pweb > /dev/null 2>&1
+chmod 777 /bin/pweb > /dev/null 2>&1
 }
 
 fun_limpiarepositorios () {
@@ -108,9 +108,16 @@ pweb
 
 while true $x != "ok"
 do
+#
+IP=$(wget -qO- ipv4.icanhazip.com)
+echo "America/Sao_Paulo" > /etc/timezone
+ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
+dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
-echo -e "\E[41;1;37m         MENU PRINCIPAL DO PWEB         \E[0m"
+echo -e "\E[44;1;37m    MENU PRINCIPAL PWEB     \E[0m"
 echo ""
+echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
+echo -e "   GESTOR-SSH" | figlet
 echo ""
 echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37  \033[1;33mINSTALAR PAINEL GESTOR-SSH     \033[1;32m(FINAL 29/04/2022) 
 \033[1;31m[\033[1;36m02\033[1;31m] \033[1;37  \033[1;33mATUALIZAR PAINEL GESTOR-SSH    \033[1;31m(TESTE 03/05/2022)
