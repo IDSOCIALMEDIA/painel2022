@@ -25,8 +25,8 @@ fun_upgrade () {
     apt-get upgrade -y > /dev/null 2>&1
 }
 fun_atpweb () {
-    apt-get install figlet -y > /dev/null 2>&1
     rm -rf /bin/pweb > /dev/null 2>&1
+    sleep 5
     wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /bin/pweb > /dev/null 2>&1
     cd /bin
    chmod +x pweb && dos2unix pweb > /dev/null 2>&1
