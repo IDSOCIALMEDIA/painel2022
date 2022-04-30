@@ -6,7 +6,11 @@ ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 clear
 echo -e "\033[1;36mPOR FAVOR AGUARDE....\033[0m"
-crack=$(cut -d"'" -f2 /opt/sshplus/licenca.txt) > /dev/null 2>&1
+#crack=$(cut -d"'" -f2 /opt/sshplus/licenca.txt) > /dev/null 2>&1
+#crack=NAND-OCRA-CKED > /dev/null 2>&1
+if crack=$(cut -d"'" -f2 /opt/sshplus/licenca.txt) > /dev/null 2>&1
+fi
+else
 crack=NAND-OCRA-CKED > /dev/null 2>&1
 rm *.sh* > /dev/null 2>&1
 rm *.zip* > /dev/null 2>&1
