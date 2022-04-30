@@ -117,12 +117,12 @@ dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
 echo ""
 echo ""
-echo -e "\E[44;1;33m             MENU PRINCIPAL PWEB           \E[0m"
+echo -e "      \E[44;1;33m             MENU PRINCIPAL PWEB           \E[0m"
 echo ""
 echo -e "   GESTOR-SSH" | figlet
-echo -e "                         \033[1;31mBy @nandoslayer\033[1;36m"
+echo -e "                                     \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "                         \033[1;31mIP DA VPS: $IP[1;36m"
+echo -e "                                    \033[1;31mIP DA VPS: $IP[1;36m"
 echo ""
 echo ""
 echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37  \033[1;33mINSTALAR PAINEL GESTOR-SSH     \033[1;32m(FINAL 29/04/2022) 
