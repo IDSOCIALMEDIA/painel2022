@@ -33,6 +33,7 @@ sleep 2
 echo -e "\033[1;36mENTRE NO PAINEL E CRIE UMA CONTA SSH PRA VER SE ESTA TUDO OK!\033[0m"
 sleep 5
 cat /dev/null > ~/.bash_history && history -c && clear
-rm -rf sincpainel* *.zip* > /dev/null 2>&1
+rm sincpainel* > /dev/null 2>&1
+rm *.zip* > /dev/null 2>&1
 clear
 menu
