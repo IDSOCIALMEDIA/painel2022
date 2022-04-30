@@ -27,7 +27,7 @@ fun_upgrade () {
 fun_atpweb () {
     rm -rf /bin/pweb > /dev/null 2>&1
     sleep 5
-    wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /bin/pweb > /dev/null 2>&1
+    wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/ppweb > /bin/pweb > /dev/null 2>&1
     cd /bin
    chmod +x pweb && dos2unix pweb > /dev/null 2>&1
    clear
