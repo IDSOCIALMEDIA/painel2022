@@ -28,7 +28,7 @@ fun_atpweb () {
     rm /bin/pweb > /dev/null 2>&1
     sleep 5
     cd /bin
-    wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /dev/null 2>&1
+    wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /dev/null 2>&1
     chmod 777 pweb > /dev/null 2>&1
     clear
 }
