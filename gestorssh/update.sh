@@ -82,6 +82,8 @@ wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
 chmod 777 /bin/usersteste.sh
 chmod 777 /bin/autobackup.sh
+/etc/init.d/cron reload > /dev/null 2>&1
+/etc/init.d/cron restart > /dev/null 2>&1
 _bnco=$(echo $(openssl rand -hex 5))
 sed -i "s;bancodir;$_bnco;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
