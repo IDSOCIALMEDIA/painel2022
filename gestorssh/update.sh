@@ -58,10 +58,7 @@ sleep 1
 unzip -o gestorssh.zip > /dev/null 2>&1
 rm -rf gestorssh.zip index.html > /dev/null 2>&1
 clear
-apt-get remove cron -y > /dev/null 2>&1
 apt-get remove --auto-remove cron -y > /dev/null 2>&1
-apt-get purge cron -y
-apt-get purge --auto-remove cron -y > /dev/null 2>&1
 apt-get install cron -y > /dev/null 2>&1
 chmod 777 /etc/crontab
 sleep 1
