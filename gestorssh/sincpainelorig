@@ -39,3 +39,4 @@ sleep 5
 cat /dev/null > ~/.bash_history && history -c && clear
 rm -rf sincpainel* *.zip* > /dev/null 2>&1
 clear
+menu
