@@ -10,7 +10,7 @@ crack=$(cut -d"'" -f2 /opt/sshplus/licenca.txt) > /dev/null 2>&1
 sleep 1.5
 echo -e "\033[1;36mCRACKEANDO UMA LICENÇA...\033[0m"
 rm *.sh* > /dev/null 2>&1
-rm *.zip* > /dev/null 2>&1
+rm *.zip > /dev/null 2>&1
 apt install unzip -y > /dev/null 2>&1
 wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.001 > /dev/null 2>&1
 wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.002 > /dev/null 2>&1
@@ -34,7 +34,9 @@ echo -e "\033[1;36mENTRE NO PAINEL E CRIE UMA CONTA SSH PRA VER SE ESTA TUDO OK!
 sleep 5
 cat /dev/null > ~/.bash_history && history -c && clear
 rm sincpainel* > /dev/null 2>&1
-rm *.zip* > /dev/null 2>&1
-rm *.00* > /dev/null 2>&1
+rm *.zip > /dev/null 2>&1
+rm *.001 > /dev/null 2>&1
+rm *.002 > /dev/null 2>&1
+rm *.003 > /dev/null 2>&1
 clear
 menu
