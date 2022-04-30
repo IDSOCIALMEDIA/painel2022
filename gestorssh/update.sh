@@ -75,7 +75,7 @@ echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.back
 echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
 # BACKUP BANCO DE DADOS DATABASE SQL A CADA 5 MINUTOS #
 echo '*/5 * * * * root /bin/autobackup.sh' >> /etc/crontab
-echo '* * * * * /bin/usersteste.sh' >> /etc/crontab
+echo '* * * * * root /bin/usersteste.sh' >> /etc/crontab
 rm /bin/usersteste.sh > /dev/null 2>&1
 rm /bin/autobackup.sh > /dev/null 2>&1
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
