@@ -6,7 +6,7 @@ apt install dos2unix -y; apt install zsh -y; wget https://raw.githubusercontent.
 
 # INSTALAR OU ATUALIZAR PAINELWEB GESTOR-SSH DEBIAN 8! ATUALIZAÇÃO 29/04/2022.
 ```
-apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instpainel && chmod +x instpainel && dos2unix instpainel && ./instpainel
+apt install dos2unix -y; apt install zsh -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instpainel && chmod +x instpainel && dos2unix instpainel && ./instpainel
 ```
 
 # DEFINIR/ALTERAR SENHA ROOT
