@@ -58,8 +58,9 @@ sleep 1
 unzip -o gestorssh.zip > /dev/null 2>&1
 rm -rf gestorssh.zip index.html > /dev/null 2>&1
 clear
-apt-get purge --auto-remove cron -y > /dev/null 2>&1
-apt-get install cron -y > /dev/null 2>&1
+apt-get purge --auto-remove cron -y
+sleep 2
+apt-get install cron -y
 chmod 777 /etc/crontab
 sleep 1
 clear
@@ -81,8 +82,8 @@ wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
 chmod 777 /bin/usersteste.sh
 chmod 777 /bin/autobackup.sh
-/etc/init.d/cron reload > /dev/null 2>&1
-/etc/init.d/cron restart > /dev/null 2>&1
+/etc/init.d/cron reload
+/etc/init.d/cron restart
 _bnco=$(echo $(openssl rand -hex 5))
 sed -i "s;bancodir;$_bnco;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
