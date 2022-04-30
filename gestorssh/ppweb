@@ -27,10 +27,9 @@ fun_upgrade () {
 fun_atpweb () {
     rm /bin/pweb > /dev/null 2>&1
     sleep 5
-    wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/ppweb > /bin/pweb > /dev/null 2>&1
     cd /bin
-   chmod 777 /bin/pweb > /dev/null 2>&1
-   clear
+    wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /dev/null 2>&1
+    chmod 777 pweb > /dev/null 2>&1
 }
 
 fun_limpiarepositorios () {
