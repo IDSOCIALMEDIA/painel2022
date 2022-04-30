@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 clear
 echo -e "\033[1;36mINSTALANDO O SINCRONIZADOR GESTOR-SSH\033[0m"
 echo "America/Sao_Paulo" > /etc/timezone
