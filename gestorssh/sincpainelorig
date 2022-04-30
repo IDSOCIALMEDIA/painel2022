@@ -20,7 +20,7 @@ chmod 777 /opt/sshplus/*-sync > /dev/null 2>&1
 sleep 1
 if [[ -e "/opt/sshplus/licenca.txt" ]]; then
 sed -i "s;NAND-OCRA-CKED;$crack;g" /opt/sshplus/licenca.txt > /dev/null 2>&1
-else  [[ -e "/opt/sshplus/licenca.txt" ]]; then
+else  [[ -e "/opt/sshplus/licenca.txt" ]];
 sed -i "s;NAND-OCRA-CKED;NAND-OCRA-CKED;g" /opt/sshplus/licenca.txt > /dev/null 2>&1
 fi
 clear
