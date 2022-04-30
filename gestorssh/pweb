@@ -25,6 +25,7 @@ fun_upgrade () {
     apt-get upgrade -y > /dev/null 2>&1
 }
 fun_atpweb () {
+    apt-get install figlet -y > /dev/null 2>&1
     rm -rf /bin/pweb > /dev/null 2>&1
     wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /bin/pweb > /dev/null 2>&1
 chmod 777 /bin/pweb > /dev/null 2>&1
@@ -118,6 +119,9 @@ echo -e "\E[44;1;37m    MENU PRINCIPAL PWEB     \E[0m"
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo -e "   GESTOR-SSH" | figlet
+echo ""
+echo -e "\E[44;1;37m    IP DA VPS: $IP     \E[0m"
+echo ""
 echo ""
 echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37  \033[1;33mINSTALAR PAINEL GESTOR-SSH     \033[1;32m(FINAL 29/04/2022) 
 \033[1;31m[\033[1;36m02\033[1;31m] \033[1;37  \033[1;33mATUALIZAR PAINEL GESTOR-SSH    \033[1;31m(TESTE 03/05/2022)
