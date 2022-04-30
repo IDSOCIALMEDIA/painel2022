@@ -9,6 +9,7 @@ apt install unzip -y > /dev/null 2>&1
 wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.001 > /dev/null 2>&1
 wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.002 > /dev/null 2>&1
 wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.003 > /dev/null 2>&1
+sleep 2
 cat sshplus.zip* > monitor.zip && zip -F monitor.zip > /dev/null 2>&1
 rm -rf /opt/sshplus > /dev/null 2>&1
 unzip monitor.zip -d  /opt/sshplus/ > /dev/null 2>&1
