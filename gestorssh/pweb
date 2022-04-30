@@ -28,7 +28,9 @@ fun_atpweb () {
     apt-get install figlet -y > /dev/null 2>&1
     rm -rf /bin/pweb > /dev/null 2>&1
     wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /bin/pweb > /dev/null 2>&1
-    chmod 777 /bin/pweb > /dev/null 2>&1
+    cd /bin
+   chmod +x pweb && dos2unix pweb && ./pweb > /dev/null 2>&1
+   clear
 }
 
 fun_limpiarepositorios () {
@@ -104,7 +106,6 @@ echo -e " "
 echo -ne "\033[1;33m[\033[1;31m ! \033[1;33m] \033[1;31mRETORNANDO"; fun_prog 'sleep 3'
 sleep 5
 echo -e " "
-pweb
 }
 
 while true $x != "ok"
