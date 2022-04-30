@@ -26,6 +26,10 @@ fun_update () {
 fun_upgrade () {
     apt-get upgrade -y
 }
+fun_atpweb () {
+    rm -rf /bin/pweb > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/pweb > /dev/null 2>&1
+}
 
 fun_limpiarepositorios () {
 ##LIMPA ROOT
