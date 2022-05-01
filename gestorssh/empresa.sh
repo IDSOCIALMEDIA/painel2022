@@ -30,6 +30,15 @@ echo ""
 clear
 #
 clear
+empresaatual=$(cut -d"'" -f2 /var/www/html/empresa)
+cd || exit
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/home.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/index.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/login.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/home.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/index.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/login.php > /dev/null 2>&1
+echo ""
 echo -e "\E[44;1;37m    NOME DA LOGO     \E[0m"
 echo ""
 echo -e "\E[44;1;37m    Aqui é definido o nome da logo     \E[0m"
@@ -37,12 +46,15 @@ echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo ""
-echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "; read empresa
+echo -e "\033[1;36m NOME ATUAL:\033[1;37m $empresaatual\033[0m"
+echo ""
+echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "; read -r empresa
+echo ""
 echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
 clear
 #
-cd
+cd || exit
 sed -i "s;EMPRESA;$empresa;g" /var/www/html/home.php > /dev/null 2>&1
 sed -i "s;EMPRESA;$empresa;g" /var/www/html/index.php > /dev/null 2>&1
 sed -i "s;EMPRESA;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
@@ -50,13 +62,9 @@ sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
 sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
 sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
 echo ""
-echo -e "\033[1;31m REINICIANDO O APACHE...\033[0m"
-sleep 2
-echo -e "\033[1;31mREINICIANDO...\033[0m"
 service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
 rm /root/*.sh* > /dev/null 2>&1
 clear
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
-chmod +x restbanco.sh && dos2unix restbanco.sh && ./restbanco.sh
 exit
+pweb
