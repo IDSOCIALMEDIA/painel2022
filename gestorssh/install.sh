@@ -39,10 +39,11 @@ if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
 else
   clear
   echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
-  rm /root/*.sh* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
-chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
-  exit
+  cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+clear
+    exit
+pweb
 fi
 apt-get install php5-curl > /dev/null 2>&1
 service apache2 restart > /dev/null 2>&1
@@ -76,15 +77,14 @@ if [[ -e "$HOME/bdgestorssh.sql" ]]; then
     rm /root/bdgestorssh.sql
 else
     clear
-    echo -e "\033[1;31m ERRO AO RESTARAR BANCO DE DADOS\033[0m"
+    echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
     sleep 2
     service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
 rm /root/*.sh* > /dev/null 2>&1
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/painelweb.sh > /dev/null 2>&1
-chmod +x painelweb.sh && dos2unix painelweb.sh && ./painelweb.sh
 clear
     exit
+pweb
 fi
 clear
 echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
