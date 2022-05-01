@@ -19,6 +19,7 @@ cd /bin || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /dev/null 2>&1
 chmod 777 pweb > /dev/null 2>&1
 clear
+mkdir /bin/pweb > /dev/null 2>&1
 cd /bin/pweb || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
