@@ -4,10 +4,11 @@ apt update > /dev/null 2>&1
 apt dist-upgrade -y > /dev/null 2>&1
 apt install unzip > /dev/null 2>&1
 apt install apache2 -y > /dev/null 2>&1
-apt install cron curl unzip dirmngr apt-transport-https -y > /dev/null 2>&1
+apt install cron curl unzip dirmngr -y > /dev/null 2>&1
+apt install lsb-release ca-certificates apt-transport-https software-properties-common -y > /dev/null 2>&1
 add-apt-repository ppa:ondrej/php -y > /dev/null 2>&1
 apt update > /dev/null 2>&1
-apt install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl php7.4-mbstring -y > /dev/null 2>&1
+apt apt install php8.0 libapache2-mod-php8.0 php8.0-xml php8.0-mcrypt php8.0-curl php8.0-mbstring -y > /dev/null 2>&1
 systemctl restart apache2
 apt install mariadb-server -y > /dev/null 2>&1
 cd || exit
@@ -21,7 +22,7 @@ mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON sshplus.* To 'gestor'@'lo
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
 echo '[mysqld]
 max_connections = 1000' >> /etc/mysql/my.cnf
-apt install php7.4-mysql -y > /dev/null 2>&1
+apt install php8.0-mysql -y > /dev/null 2>&1
 phpenmod mcrypt
 systemctl restart apache2
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
