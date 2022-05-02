@@ -17,7 +17,7 @@ mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
 mysql -u root -p"$pwdroot" -e "CREATE USER 'gestor'@'localhost';'"
 mysql -u root -p"$pwdroot" -e "CREATE DATABASE sshplus;"
-mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON gestor.* To 'gestor'@'localhost' IDENTIFIED BY '$pwdroot';"
+mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON sshplus.* To 'gestor'@'localhost' IDENTIFIED BY '$pwdroot';"
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
 echo '[mysqld]
 max_connections = 1000' >> /etc/mysql/my.cnf
