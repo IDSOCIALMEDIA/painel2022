@@ -31,6 +31,14 @@ fun_atpweb () {
     wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /dev/null 2>&1
     chmod 777 pweb > /dev/null 2>&1
     clear
+    mkdir /bin/ppweb > /dev/null 2>&1
+cd /bin/ppweb || exit
+rm *.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
+chmod 777 *.sh > /dev/null 2>&1
+clear
 }
 
 fun_limpiarepositorios () {
@@ -51,14 +59,14 @@ painel_att () {
     bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh)
 }
 painel_rest () {
-    /bin/pweb/restbanco.sh
+    /bin/ppweb/restbanco.sh
 }
 painel_empresa () {
-    /bin/pweb/empresa.sh
+    /bin/ppweb/empresa.sh
 }
 #SENHA ROOT
 senha_root () {
- /bin/pweb/senharoot.sh
+ /bin/ppweb/senharoot.sh
 }
 ##PAINEL REMOVE
 remove_painel () {
