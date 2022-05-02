@@ -37,6 +37,7 @@ rm *.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainel.sh > /dev/null 2>&1
 chmod 777 *.sh > /dev/null 2>&1
 clear
 }
@@ -56,7 +57,7 @@ painel_inst () {
     bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install.sh)
 }
 painel_att () {
-    bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/update.sh)
+    /bin/ppweb/updatepainel.sh
 }
 painel_rest () {
     /bin/ppweb/restbanco.sh
