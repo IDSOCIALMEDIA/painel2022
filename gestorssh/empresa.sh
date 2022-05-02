@@ -48,7 +48,7 @@ echo ""
 echo ""
 echo -e "\033[1;36m NOME ATUAL:\033[1;37m $empresaatual\033[0m"
 echo ""
-echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "; read -r empresa
+echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: $empresaatual"; read -r empresa
 echo ""
 echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
