@@ -9,7 +9,7 @@ echo -e "\E[44;1;37m    INSTALAR PAINELWEB GESTOR-SSH     \E[0m"
 echo ""
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -ne "\n\033[1;32mDEFINA UMA SENHA PARA O\033[1;33m MYSQL\033[1;37m: "; read senha
+echo -ne "\n\033[1;32mDEFINA UMA SENHA PARA O\033[1;33m MYSQL\033[1;37m: "; read -r senha
 echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
 apt-get update -y > /dev/null 2>&1
 apt-get install cron curl unzip -y > /dev/null 2>&1
@@ -22,7 +22,7 @@ echo "debconf mysql-server/root_password password $senha" | debconf-set-selectio
 echo "debconf mysql-server/root_password_again password $senha" | debconf-set-selections
 apt-get install mysql-server -y > /dev/null 2>&1
 mysql_install_db > /dev/null 2>&1
-(echo $senha; echo n; echo y; echo y; echo y; echo y)|mysql_secure_installation > /dev/null 2>&1
+(echo "$senha"; echo n; echo y; echo y; echo y; echo y)|mysql_secure_installation > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO O PHPMYADMIN \033[1;33mAGUARDE...\033[0m"
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
 echo "phpmyadmin phpmyadmin/app-password-confirm password $senha" | debconf-set-selections
@@ -60,7 +60,7 @@ echo ""
 echo -e "\033[1;33m AGUARDE..."
 echo ""
 clear
-cd /var/www/html
+cd /var/www/html || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
 rm -rf gestorssh.zip index.html > /dev/null 2>&1
@@ -69,11 +69,11 @@ if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
 fi
 sleep 1
-cd
+cd || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/bdgestorssh.sql > /dev/null 2>&1
 sleep 1
 if [[ -e "$HOME/bdgestorssh.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < bdgestorssh.sql
+    mysql -h localhost -u root -p"$senha" --default_character_set utf8 sshplus < bdgestorssh.sql
     rm /root/bdgestorssh.sql
 else
     clear
@@ -107,8 +107,6 @@ chmod 777 /bin/usersteste.sh
 chmod 777 /bin/autobackup.sh
 /etc/init.d/cron reload > /dev/null 2>&1
 /etc/init.d/cron restart > /dev/null 2>&1
-_bnco=$(echo $(openssl rand -hex 5))
-sed -i "s;bancodir;$_bnco;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
 chmod 777 /root/backupsql
 chmod 777 /var/www/html/admin/pages/servidor/ovpn
@@ -124,13 +122,22 @@ echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;31m REINICIANDO O APACHE...\033[0m"
-sleep 1
-echo -e "\033[1;31mREINICIANDO...\033[0m"
+echo ""
+echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mpweb\033[0m"
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@nandoslayer\033[0m"
 service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
 rm /root/*.sh* > /dev/null 2>&1
+sleep 5
+cd /bin || exit
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /dev/null 2>&1
+chmod 777 pweb > /dev/null 2>&1
 clear
-wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/empresa.sh > /dev/null 2>&1
-chmod +x empresa.sh && dos2unix empresa.sh && ./empresa.sh
+mkdir /bin/pweb > /dev/null 2>&1
+cd /bin/pweb || exit
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
+chmod 777 *.sh > /dev/null 2>&1
+clear
 exit

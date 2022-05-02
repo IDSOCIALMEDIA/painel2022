@@ -44,7 +44,7 @@ echo -ne "\033[1;32mDE UM ENTER PRA CONTINUAR...\033[0m"; read -r
 	echo -e "\n\033[1;31mO PAINEL NÃO ESTÁ INSTALADO !\033[0m"
 	echo ""
 cat /dev/null > ~/.bash_history && history -c
-clear; exit 0
+clear
 pweb
 }
 
@@ -53,7 +53,7 @@ pweb
 	echo ""
 echo -e "\033[1;31mRETORNANDO...\033[0m"
 cat /dev/null > ~/.bash_history && history -c
-clear; exit 0
+clear
 pweb
 }
 
@@ -63,7 +63,7 @@ passdb=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 	echo ""
 echo -e "\033[1;31mRETORNANDO...\033[0m"
 cat /dev/null > ~/.bash_history && history -c
-clear; exit 0
+clear
 pweb
 }
 
@@ -76,5 +76,5 @@ echo -e "\n\033[1;32mBACKUP RESTAURADO COM SUCESSO!\033[0m"
 echo ""
 echo -e "\033[1;31mRETORNANDO...\033[0m"
 cat /dev/null > ~/.bash_history && history -c
-clear; exit 0
+clear
 pweb

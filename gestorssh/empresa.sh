@@ -66,5 +66,4 @@ service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
 rm /root/*.sh* > /dev/null 2>&1
 clear
-exit
 pweb
