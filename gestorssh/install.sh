@@ -101,18 +101,15 @@ echo '*/5 * * * * root /bin/autobackup.sh' >> /etc/crontab
 echo '* * * * * root /bin/usersteste.sh' >> /etc/crontab
 rm /bin/usersteste.sh > /dev/null 2>&1
 rm /bin/autobackup.sh > /dev/null 2>&1
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
+wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh > /dev/null 2>&1
+wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh > /dev/null 2>&1
 chmod 777 /bin/usersteste.sh
 chmod 777 /bin/autobackup.sh
 /etc/init.d/cron reload > /dev/null 2>&1
 /etc/init.d/cron restart > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
-chmod 777 /root/backupsql
-chmod 777 /var/www/html/admin/pages/servidor/ovpn
-chmod 777 /var/www/html/admin/pages/download
-chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-chmod 777 /var/www/html/backups
+chmod -R 777 /root/backupsql > /dev/null 2>&1
+chmod -R 777 /var/www/html
 sleep 1
 echo -e "\033[1;32m GESTOR-SSH INSTALADO COM SUCESSO!"
 echo ""
@@ -138,6 +135,8 @@ cd /bin/pweb || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainel.sh > /dev/null 2>&1
+chmod 777 *.sh > /dev/null 2>&1
 chmod 777 *.sh > /dev/null 2>&1
 clear
 exit
