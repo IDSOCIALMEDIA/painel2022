@@ -32,7 +32,7 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 cd /var/www/html || exit
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip> /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh18.zip> /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
 chmod -R 777 /var/www/html
 rm gestorssh.zip index.html > /dev/null 2>&1
