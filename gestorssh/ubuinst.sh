@@ -10,7 +10,7 @@ add-apt-repository ppa:ondrej/php -y > /dev/null 2>&1
 apt update > /dev/null 2>&1
 apt apt install php8.0 libapache2-mod-php8.0 php8.0-xml php8.0-mcrypt php8.0-curl php8.0-mbstring -y > /dev/null 2>&1
 systemctl restart apache2
-apt install mariadb-server -y > /dev/null 2>&1
+apt install mysql-server -y > /dev/null 2>&1
 cd || exit
 mysql -u root -p"$pwdroot" -e "UPDATE mysql.user SET Password=PASSWORD('$pwdroot') WHERE User='root'"
 mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''"
@@ -26,7 +26,7 @@ apt install php8.0-mysql -y > /dev/null 2>&1
 phpenmod mcrypt
 systemctl restart apache2
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
-apt install php7.4-ssh2 -y > /dev/null 2>&1
+apt install php8.0-ssh2 -y > /dev/null 2>&1
 php -m | grep ssh2 > /dev/null 2>&1
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
