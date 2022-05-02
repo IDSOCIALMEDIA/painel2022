@@ -48,7 +48,7 @@ clear
 pweb
 }
 
-[[ ! -e /root/restaurar/*.sql ]] && {
+[[ ! -e /root/restaurar/sshplus.sql ]] && {
 	echo -e "\n\033[1;31mARQUIVO (\033[1;32msshplus.sql\033[1;31m) NÃO ENCONTRADO !\033[0m"
 	echo ""
 echo -e "\033[1;31mRETORNANDO...\033[0m"
