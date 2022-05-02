@@ -18,7 +18,7 @@ wget github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/sshplus.zip.003 > /dev/
 cat sshplus.zip* > monitor.zip && zip -F monitor.zip > /dev/null 2>&1
 rm -rf /opt/sshplus > /dev/null 2>&1
 unzip monitor.zip -d  /opt/sshplus/ > /dev/null 2>&1
-chmod +x /opt/sshplus > /dev/null 2>&1
+chmod -R 777 /opt/sshplus > /dev/null 2>&1
 sleep 1
 if [[ -e "/opt/sshplus/licenca.txt" ]]; then
 sed -i "s;NAND-OCRA-CKED;$crack;g" /opt/sshplus/licenca.txt > /dev/null 2>&1
