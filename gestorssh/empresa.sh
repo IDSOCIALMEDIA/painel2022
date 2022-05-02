@@ -32,12 +32,12 @@ clear
 clear
 empresaatual=$(cut -d"'" -f2 /var/www/html/empresa)
 cd || exit
-sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/home.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/index.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/login.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/home.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/index.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/home.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/index.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/home.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/index.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/login.php > /dev/null 2>&1
 echo ""
 echo -e "\E[44;1;37m    NOME DA LOGO     \E[0m"
 echo ""
@@ -55,12 +55,14 @@ echo ""
 clear
 #
 cd || exit
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/home.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/index.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
-sed -i "s;EMPRESA;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/empresa > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/home.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/index.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
 echo ""
 service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
