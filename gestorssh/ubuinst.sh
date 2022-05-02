@@ -11,12 +11,13 @@ apt install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl ph
 systemctl restart apache2
 apt install mariadb-server -y > /dev/null 2>&1
 cd || exit
-mysqladmin -u root password "$pwdroot"
 mysql -u root -p"$pwdroot" -e "UPDATE mysql.user SET Password=PASSWORD('$pwdroot') WHERE User='root'"
 mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''"
 mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'"
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
+mysql -u root -p"$pwdroot" -e "CREATE USER 'gestor'@'localhost';'"
 mysql -u root -p"$pwdroot" -e "CREATE DATABASE sshplus;"
+mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON gestor.* To 'gestor'@'localhost' IDENTIFIED BY '$pwdroot';"
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
 echo '[mysqld]
 max_connections = 1000' >> /etc/mysql/my.cnf
