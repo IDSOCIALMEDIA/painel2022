@@ -1,7 +1,6 @@
-# SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH!
-# ATUALIZAÇÃO 29/04/2022.
+# SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH! ATUALIZAÇÃO 29/04/2022.
 ```
-apt install dos2unix -y; wget https://raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincpainel && chmod +x sincpainel && dos2unix sincpainel && ./sincpainel
+bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincpainel.sh)
 ```
 
 # INSTALAR OU ATUALIZAR PAINELWEB GESTOR-SSH DEBIAN 8! ATUALIZAÇÃO 29/04/2022.
