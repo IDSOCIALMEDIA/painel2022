@@ -43,6 +43,8 @@ echo -ne "\033[1;32mDE UM ENTER PRA CONTINUAR...\033[0m"; read -r
 [[ ! -e /var/www/html/pages/system/pass.php ]] && {
 	echo -e "\n\033[1;31mO PAINEL NÃO ESTÁ INSTALADO !\033[0m"
 	echo ""
+sleep 3
+echo -e "\033[1;31mRETORNANDO...\033[0m"
 cat /dev/null > ~/.bash_history && history -c
 clear
 pweb
@@ -51,6 +53,7 @@ pweb
 [[ ! -e /root/restaurar/sshplus.sql ]] && {
 	echo -e "\n\033[1;31mARQUIVO (\033[1;32msshplus.sql\033[1;31m) NÃO ENCONTRADO !\033[0m"
 	echo ""
+sleep 3
 echo -e "\033[1;31mRETORNANDO...\033[0m"
 cat /dev/null > ~/.bash_history && history -c
 clear
@@ -61,6 +64,7 @@ passdb=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 [[ $(mysql -h localhost -u root -p$passdb -e "show databases" | grep -wc sshplus) == '0' ]] && {
 	echo -e "\n\033[1;31mSEU PAINEL NÃO É COMPATÍVEL !\033[0m"
 	echo ""
+sleep 3
 echo -e "\033[1;31mRETORNANDO...\033[0m"
 cat /dev/null > ~/.bash_history && history -c
 clear
@@ -71,10 +75,11 @@ mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE sshplus'
 mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < /root/restaurar/sshplus.sql
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "\n\033[1;32mBACKUP RESTAURADO COM SUCESSO!\033[0m"
+echo -e "\n\033[1;32mDADOS RESTAURADO COM SUCESSO!\033[0m"
 echo ""
 sleep 3
 echo -e "\033[1;31mRETORNANDO...\033[0m"
+rm /root/restaurar/*.sql > /dev/null 2>&1
 sleep 2
 cat /dev/null > ~/.bash_history && history -c
 clear
