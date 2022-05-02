@@ -36,7 +36,7 @@ echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\033[1;33mRESTAURAR BANCO DE DADOS DO PAINEL GESTOR-SSH!\033[0m" 
 echo ""
-echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nAQUIVO (\033[1;32m.sql\033[1;33m) NA PASTA (root/restaurar)!\033[0m\n"
+echo -e "\n\033[1;33mÉ NECESSÁRIO O PAINEL INSTALADO E O\nAQUIVO (\033[1;32msshplus.sql\033[1;33m) NA PASTA (root/restaurar)!\033[0m\n"
 echo ""
 echo -ne "\033[1;32mDE UM ENTER PRA CONTINUAR...\033[0m"; read -r
 
