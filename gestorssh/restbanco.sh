@@ -66,15 +66,16 @@ cat /dev/null > ~/.bash_history && history -c
 clear
 pweb
 }
-
 mysql -h localhost -u root -p$passdb -e "drop database sshplus"
 mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE sshplus'
-mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < sshplus.sql
+mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < /root/restaurar/sshplus.sql
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\n\033[1;32mBACKUP RESTAURADO COM SUCESSO!\033[0m"
 echo ""
+sleep 3
 echo -e "\033[1;31mRETORNANDO...\033[0m"
+sleep 2
 cat /dev/null > ~/.bash_history && history -c
 clear
 pweb
