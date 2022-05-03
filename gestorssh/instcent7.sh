@@ -85,7 +85,7 @@ echo "
 */1 * * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
 0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
-crontab cronset && rm cronset >
+crontab cronset && rm cronset
 cd $HOME || exit
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
