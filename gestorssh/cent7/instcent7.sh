@@ -69,12 +69,10 @@ crontab -l > cronset
 echo "
 * * * * * /bin/usersteste.sh
 */5 * * * * /bin/autobackup.sh
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.rev.php
-*/1 * * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
+@daily /usr/bin/php /var/www/html/pages/system/cron.rev.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
 0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
 crontab cronset && rm cronset
@@ -99,7 +97,7 @@ echo "Backup dos dados do PHPMyadmin se encontra no /root/PHPMYADMIN.txt"
 echo "Acesso PHPMYADMIN: $cake/phpmyadmin" >> PHPMYADMINDATA.txt
 echo "Login PHPMYADMIN: root" >> PHPMYADMINDATA.txt
 echo "senha PHPMYADMIN: $root_password" >> PHPMYADMINDATA.txt
-sleep 10
+sleep 20
 pweb
 }
 menu
