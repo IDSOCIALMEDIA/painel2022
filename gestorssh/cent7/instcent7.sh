@@ -13,9 +13,9 @@ install
 elif [ $option = "y" ]; then
 install
 elif [ $option = "n" ]; then
-exit
+pweb
 elif [ $option = "N" ]; then
-exit
+pweb
 else
 menu
 fi
@@ -100,5 +100,6 @@ echo "Acesso PHPMYADMIN: $cake/phpmyadmin" >> PHPMYADMINDATA.txt
 echo "Login PHPMYADMIN: root" >> PHPMYADMINDATA.txt
 echo "senha PHPMYADMIN: $root_password" >> PHPMYADMINDATA.txt
 sleep 10
-}
 pweb
+}
+menu
