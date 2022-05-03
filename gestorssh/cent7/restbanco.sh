@@ -29,7 +29,7 @@ tput cnorm
 echo ""
 clear
 #
-mkdir /root/restaurar
+mkdir /root/restaurar > /dev/null 2>&1
 clear
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
@@ -70,16 +70,16 @@ cat /dev/null > ~/.bash_history && history -c
 clear
 pweb
 }
-mysql -h localhost -u root -p$passdb -e "drop database sshplus"
-mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE sshplus'
-mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < /root/restaurar/sshplus.sql
+mysql -h localhost -u root -p$passdb -e "drop database sshplus" > /dev/null 2>&1
+mysql -h localhost -u root -p$passdb -e 'CREATE DATABASE sshplus' > /dev/null 2>&1
+mysql -h localhost -u root -p$passdb --default_character_set utf8 sshplus < /root/restaurar/sshplus.sql > /dev/null 2>&1
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo -e "\n\033[1;32mDADOS RESTAURADO COM SUCESSO!\033[0m"
 echo ""
 sleep 4
 echo -e "\033[1;31mRETORNANDO...\033[0m"
-rm /root/restaurar/*.sql
+rm /root/restaurar/*.sql > /dev/null 2>&1
 sleep 2
 cat /dev/null > ~/.bash_history && history -c
 clear

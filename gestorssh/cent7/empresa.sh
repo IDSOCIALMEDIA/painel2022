@@ -33,7 +33,7 @@ clear
 empresaatual=$(cut -d"'" -f2 /var/www/html/empresa)
 
 echo ""
-echo -e "\E[44;1;37m        Aqui é definido o nome da logo        \E[0m"
+echo -e "\E[44;1;37m        MUDAR NOME DA LOGO        \E[0m"
 echo ""
 echo -e "                           \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
