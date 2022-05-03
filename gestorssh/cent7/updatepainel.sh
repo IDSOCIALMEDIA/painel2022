@@ -58,9 +58,6 @@ wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip
 sleep 1
 unzip -o gestorssh.zip
 rm -rf gestorssh.zip index.html
-clear
-/etc/init.d/cron reload
-/etc/init.d/cron restart
 mkdir /root/backupsql
 chmod 777 /root/backupsql
 chmod 777 -R /var/www/
