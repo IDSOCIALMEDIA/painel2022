@@ -35,28 +35,28 @@ _core=$(printf '%-5s' "$(grep -c cpu[0-9] /proc/stat)")
 _system=$(printf '%-14s' "$system")
 _hora=$(date +%H:%M:%S)
 fun_update () {
-    yum update -y
+    yum update -y > /dev/null 2>&1
 }
 
 fun_upgrade () {
-    yum upgrade -y
+    yum upgrade -y > /dev/null 2>&1
 }
 fun_atpweb () {
-    rm /bin/pweb
+    rm /bin/pweb > /dev/null 2>&1
     sleep 5
     cd /bin || exit
-    wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/pweb
-    chmod 777 pweb
+    wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/pweb > /dev/null 2>&1
+    chmod 777 pweb > /dev/null 2>&1
     clear
-    mkdir /bin/ppweb
+    mkdir /bin/ppweb > /dev/null 2>&1
 cd /bin/ppweb || exit
-rm *.sh
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/instcent7.sh
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/senharoot.sh
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/restbanco.sh
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/empresa.sh
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/updatepainel.sh
-chmod -R 777 /bin/ppweb
+rm *.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/instcent7.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/senharoot.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/restbanco.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/empresa.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/updatepainel.sh > /dev/null 2>&1
+chmod -R 777 /bin/ppweb > /dev/null 2>&1
 clear
 }
 
@@ -141,9 +141,9 @@ while true $x != "ok"
 do
 #
 IP=$(wget -qO- ipv4.icanhazip.com)
-echo "America/Sao_Paulo" > /etc/timezone
-ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
+echo "America/Sao_Paulo" > /etc/timezone > /dev/null 2>&1
+ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
+dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
 echo -e "\033[1;37m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\033[0m"
 echo -e "\033[1;37m┃                       \033[38;5;118mPAINEL \033[38;5;190mGESTOR\033[38;5;197m-\033[38;5;164mSS\033[38;5;203mH\033[38;5;197m\033[1;37m                      ┃\E[0m"
