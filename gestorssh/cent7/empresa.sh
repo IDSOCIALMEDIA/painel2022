@@ -40,30 +40,23 @@ echo ""
 echo ""
 echo -e "\033[1;36m NOME ATUAL:\033[1;37m $empresaatual\033[0m"
 echo ""
-echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "
-echo -n "> "
-read -r empresa
-if [ -z $empresa ]; then
-clear 
-echo "POR FAVOR INFORME UM NOME"
-sleep 2
-else
-pweb
-fi
+echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "; read -r empresa
+echo ""
 echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
 clear
 #
 cd || exit
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/empresa
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/home.php
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/index.php
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/login.php
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/home.php
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/index.php
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/empresa > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/home.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/index.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
 echo ""
+echo -e "\033[1;36m NOME ALTERADO PARA:\033[1;37m $empresa\033[0m"
+sleep 5
 cat /dev/null > ~/.bash_history && history -c
 clear
 pweb
