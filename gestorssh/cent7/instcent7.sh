@@ -22,46 +22,46 @@ fi
 }
 install(){
 clear
-yum update -y
-yum upgrade -y
-yum install epel-release -y 
+yum update -y > /dev/null 2>&1
+yum upgrade -y > /dev/null 2>&1
+yum install epel-release -y > /dev/null 2>&1 
 yum install php htop zip nload nano phpmyadmin httpd mysql mariadb-server php-pecl-ssh2 -y --skip-broken
 yum install gcc php-devel libssh2 libssh2-devel php-pear make php-mcrypt unzip wget screen -y --skip-broken
-setsebool -P httpd_can_network_connect 1
-systemctl enable httpd 
-systemctl enable mariadb
-service httpd restart
-service mariadb start
+setsebool -P httpd_can_network_connect 1 > /dev/null 2>&1
+systemctl enable httpd > /dev/null 2>&1
+systemctl enable mariadb > /dev/null 2>&1
+service httpd restart > /dev/null 2>&1
+service mariadb start > /dev/null 2>&1
 dbconfig
 }
 dbconfig(){
 clear
-mysql -e "UPDATE mysql.user SET Password = PASSWORD('$root_password') WHERE User = 'root'"
-mysql -e "FLUSH PRIVILEGES"
+mysql -e "UPDATE mysql.user SET Password = PASSWORD('$root_password') WHERE User = 'root'" > /dev/null 2>&1
+mysql -e "FLUSH PRIVILEGES" > /dev/null 2>&1
 phpmyadminfix
 }
 phpmyadminfix(){
-rm /etc/httpd/conf.d/phpMyAdmin.conf
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/phpMyAdmin.conf -O /etc/httpd/conf.d/phpMyAdmin.conf
-chmod 777 /etc/httpd/conf.d/phpMyAdmin.conf
-service httpd restart
+rm /etc/httpd/conf.d/phpMyAdmin.conf > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/phpMyAdmin.conf -O /etc/httpd/conf.d/phpMyAdmin.conf > /dev/null 2>&1
+chmod 777 /etc/httpd/conf.d/phpMyAdmin.conf > /dev/null 2>&1
+service httpd restart > /dev/null 2>&1
 installweb
 }
 installweb(){
 cd /var/www/html || exit
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip
-unzip gestorssh.zip
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
+unzip gestorssh.zip > /dev/null 2>&1
 sed -i "s;1020;$root_password;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
-chmod 777 -R /var/www/
-rm -rf gestorssh.zip
+chmod 777 -R /var/www/ > /dev/null 2>&1
+rm -rf gestorssh.zip > /dev/null 2>&1
 cd || exit
 createdb
 }
 createdb(){
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/bdgestorssh.sql
-mysql -h localhost -u root -p$root_password -e "CREATE DATABASE sshplus"
-mysql -h localhost -u root -p$root_password --default_character_set utf8 sshplus < bdgestorssh.sql
-rm -rf bdgestorssh.sql
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/bdgestorssh.sql > /dev/null 2>&1
+mysql -h localhost -u root -p$root_password -e "CREATE DATABASE sshplus" > /dev/null 2>&1
+mysql -h localhost -u root -p$root_password --default_character_set utf8 sshplus < bdgestorssh.sql > /dev/null 2>&1
+rm -rf bdgestorssh.sql > /dev/null 2>&1
 croninstall
 }
 croninstall(){
@@ -79,11 +79,11 @@ echo "
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
 crontab cronset && rm cronset
 cd $HOME || exit
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
-chmod 777 /bin/usersteste.sh
-chmod 777 /bin/autobackup.sh
-mkdir /root/backupsql
+wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh > /dev/null 2>&1
+wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh > /dev/null 2>&1
+chmod 777 /bin/usersteste.sh > /dev/null 2>&1
+chmod 777 /bin/autobackup.sh > /dev/null 2>&1
+mkdir /root/backupsql > /dev/null 2>&1
 final
 }
 final(){
@@ -101,4 +101,4 @@ echo "Login PHPMYADMIN: root" >> PHPMYADMINDATA.txt
 echo "senha PHPMYADMIN: $root_password" >> PHPMYADMINDATA.txt
 sleep 10
 }
-menu
+pweb
