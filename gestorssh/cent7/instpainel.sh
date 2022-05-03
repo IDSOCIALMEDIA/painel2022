@@ -25,7 +25,7 @@ mkdir /bin/ppweb
 cd /bin/ppweb || exit
 rm *.sh
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/instcent7.sh
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/senharoot.sh 
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/senharoot.sh
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/restbanco.sh
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/empresa.sh
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/updatepainel.sh
