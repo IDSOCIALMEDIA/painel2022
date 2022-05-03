@@ -50,9 +50,10 @@ clear
 #
 senha=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 echo ""
+sleep 2
 echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ATUALIZAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
 cd /var/www/html || exit
-rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html logo admin app-assets arquivos assets lib pages phpmailer scripts src
+rm -rf *
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip
 sleep 1
 unzip -o gestorssh.zip
@@ -62,10 +63,7 @@ clear
 /etc/init.d/cron restart
 mkdir /root/backupsql
 chmod 777 /root/backupsql
-chmod 777 /var/www/html/admin/pages/servidor/ovpn
-chmod 777 /var/www/html/admin/pages/download
-chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-chmod 777 /var/www/html/backups
+chmod 777 -R /var/www/
 sleep 1
 if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php
@@ -80,6 +78,7 @@ echo -e "   GESTOR-SSH" | figlet
 echo ""
 echo -e "\033[1;36m PAINELWEB DIGITE ESSE IP NO NAVEGADOR:\033[1;37m http://$IP/admin\033[0m"
 echo ""
+sleep 5
 service apache2 restart
 cat /dev/null > ~/.bash_history && history -c
 clear
