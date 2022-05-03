@@ -31,16 +31,16 @@ clear
 #
 clear
 empresaatual=$(cut -d"'" -f2 /var/www/html/empresa)
-echo -e "\E[44;1;37m    NOME DA LOGO     \E[0m"
+
 echo ""
-echo -e "\E[44;1;37m    Aqui é definido o nome da logo     \E[0m"
+echo -e "\E[44;1;37m        Aqui é definido o nome da logo        \E[0m"
 echo ""
-echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
+echo -e "                           \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
 echo ""
 echo -e "\033[1;36m NOME ATUAL:\033[1;37m $empresaatual\033[0m"
 echo ""
-echo -ne "\033[1;32m INFORME O NOME DA EMPRESA\033[1;37m: "; read -r empresa
+echo -ne "\033[1;32m INFORME O NOME DA LOGO\033[1;37m: "; read -r empresa
 echo ""
 echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
