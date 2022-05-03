@@ -45,18 +45,10 @@ echo -n "> "
 read -r empresa
 if [ -z $empresa ]; then
 clear 
-echo "POR FAVOR INFORME O NOME DA EMPRESA"
+echo "POR FAVOR INFORME UM NOME"
 sleep 2
 else
-cd || exit
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/empresa
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/home.php
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/index.php
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/login.php
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/home.php
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/index.php
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/login.php
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/login.php
+pweb
 fi
 echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
