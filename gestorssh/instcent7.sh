@@ -3,19 +3,19 @@ menu(){
 ipweb=$(curl https://bigbolgames.com)
 clear
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-10s\n' "INSTALAR PAINELWEB GESTOR-SSH CENTOS 7" ; tput sgr0 ; echo ""
-echo "Continuar? S\n"
+echo "Continuar? Y\n"
 echo -n "> "
 read option
-if [ $option = "S" ]; then
+if [ $option = "Y" ]; then
 install
-elif [ $option = "s" ]; then
+elif [ $option = "y" ]; then
 install
 elif [ $option = "n" ]; then
 pweb
 elif [ $option = "N" ]; then
 pweb
 else
-pweb
+menu
 fi
 }
 install(){
