@@ -31,6 +31,7 @@ wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/empresa.s
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/updatepainel.sh
 chmod -R 777 /bin/ppweb
 clear
+cd || exit
 echo -e "        \033[1;33m • \033[1;32mINSTALAÇÃO CONCLUÍDA\033[1;33m • \033[0m"
 echo ""
 echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mpweb\033[0m"
