@@ -2,7 +2,7 @@
 menu(){
 ipweb=$(curl https://bigbolgames.com)
 clear
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-10s\n' "INSTALAR PAINELWEB GESTOR-SSH CENTOS 7" ; tput sgr0 ; echo ""
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-10s\n' "Instalador PainelWEB GESTOR-SSH CENTOS 7" ; tput sgr0 ; echo ""
 echo "Continuar? Y\n"
 echo -n "> "
 read option
@@ -11,23 +11,23 @@ install
 elif [ $option = "y" ]; then
 install
 elif [ $option = "n" ]; then
-pweb
+exit
 elif [ $option = "N" ]; then
-pweb
+exit
 else
 menu
 fi
 }
 install(){
 clear
-yum update -y > /dev/null 2>&1
-yum upgrade -y > /dev/null 2>&1
-yum install epel-release -y > /dev/null 2>&1 
+yum update -y
+yum upgrade -y
+yum install epel-release -y 
 yum install php htop zip nload nano phpmyadmin httpd mysql mariadb-server php-pecl-ssh2 -y --skip-broken
 yum install gcc php-devel libssh2 libssh2-devel php-pear make php-mcrypt unzip wget screen -y --skip-broken
 setsebool -P httpd_can_network_connect 1
-systemctl enable httpd > /dev/null 2>&1
-systemctl enable mariadb > /dev/null 2>&1
+systemctl enable httpd 
+systemctl enable mariadb
 service httpd restart
 service mariadb start
 dbconfig
@@ -39,7 +39,7 @@ echo -n "> "
 read root_password
 if [ -z $root_password ]; then
 clear 
-echo "Por favor coloque uma senha"
+echo "Por favor coloque senha do MYsql"
 sleep 2
 dbconfig
 else
@@ -56,13 +56,13 @@ service httpd restart
 installweb
 }
 installweb(){
-cd /var/www/html || exit
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
-unzip gestorssh.zip > /dev/null 2>&1
+cd /var/www/html
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip
+unzip gestorssh.zip
 sed -i "s;1020;$root_password;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
-rm gestorssh.zip > /dev/null 2>&1
-chmod 777 -R /var/www/ > /dev/null 2>&1
-cd || exit
+rm gestorssh.zip
+chmod 777 -R /var/www/
+cd
 createdb
 }
 createdb(){
@@ -85,7 +85,7 @@ echo "
 */1 * * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
 0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
-crontab cronset && rm cronset > /dev/null 2>&1
+crontab cronset && rm cronset >
 cd $HOME || exit
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
 wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
@@ -108,4 +108,3 @@ echo "Login PHPMYADMIN: root" >> PHPMYADMINDATA.txt
 echo "senha PHPMYADMIN: $root_password" >> PHPMYADMINDATA.txt
 sleep 10
 }
-pweb
