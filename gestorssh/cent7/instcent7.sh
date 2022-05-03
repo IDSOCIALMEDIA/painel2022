@@ -69,11 +69,10 @@ crontab -l > cronset
 echo "
 * * * * * /bin/userteste.sh
 */5 * * * * /bin/autobackup.sh
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.rev.php
+@daily /usr/bin/php /var/www/html/pages/system/cron.rev.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
 */1 * * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
 0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
