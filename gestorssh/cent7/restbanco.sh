@@ -29,7 +29,7 @@ tput cnorm
 echo ""
 clear
 #
-mkdir /root/restaurar > /dev/null 2>&1
+mkdir /root/restaurar
 clear
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
@@ -79,7 +79,7 @@ echo -e "\n\033[1;32mDADOS RESTAURADO COM SUCESSO!\033[0m"
 echo ""
 sleep 4
 echo -e "\033[1;31mRETORNANDO...\033[0m"
-rm /root/restaurar/*.sql > /dev/null 2>&1
+rm /root/restaurar/*.sql
 sleep 2
 cat /dev/null > ~/.bash_history && history -c
 clear

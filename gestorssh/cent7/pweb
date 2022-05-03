@@ -35,22 +35,22 @@ _core=$(printf '%-5s' "$(grep -c cpu[0-9] /proc/stat)")
 _system=$(printf '%-14s' "$system")
 _hora=$(printf '%(%H:%M:%S)T')
 fun_update () {
-    yum update -y > /dev/null 2>&1
+    yum update -y
 }
 
 fun_upgrade () {
-    yum upgrade -y > /dev/null 2>&1
+    yum upgrade -y
 }
 fun_atpweb () {
-    rm /bin/pweb > /dev/null 2>&1
+    rm /bin/pweb
     sleep 5
     cd /bin || exit
     wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/pweb
-    chmod 777 pweb > /dev/null 2>&1
+    chmod 777 pweb
     clear
-    mkdir /bin/ppweb > /dev/null 2>&1
+    mkdir /bin/ppweb
 cd /bin/ppweb || exit
-rm *.sh > /dev/null 2>&1
+rm *.sh
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/instcent7.sh
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/senharoot.sh
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/cent7/restbanco.sh
@@ -100,7 +100,7 @@ rm -rf /var/www/html
 yum autoremove
 yum install apache2 -y >/dev/null
 sed -i "s;Listen 80;Listen 81;g" /etc/apache2/ports.conf
-service apache2 restart > /dev/null 2>&1
+service apache2 restart
 service apache2 stop
 [[ ! -d /var/www ]] && mkdir /var/www
 [[ ! -d /var/www/html ]] && mkdir /var/www/html

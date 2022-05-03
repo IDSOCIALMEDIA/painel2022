@@ -49,28 +49,28 @@ echo "POR FAVOR INFORME O NOME DA EMPRESA"
 sleep 2
 else
 cd || exit
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/empresa > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/home.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/index.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/login.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/home.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/index.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/login.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/empresa
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/home.php
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/index.php
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/login.php
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/home.php
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/index.php
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/login.php
+sed -i "s;$empresaatual;$empresaatual;g" /var/www/html/admin/login.php
 fi
 echo -e "   \033[1;32mOK\033[1;37m"
 echo ""
 clear
 #
 cd || exit
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/empresa > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/home.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/index.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/empresa
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/home.php
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/index.php
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/login.php
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/home.php
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/index.php
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php
+sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php
 echo ""
 cat /dev/null > ~/.bash_history && history -c
 clear
