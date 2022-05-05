@@ -1,138 +1,126 @@
 #!/bin/bash
-function inst_base {
-apt update > /dev/null 2>&1
-apt dist-upgrade -y > /dev/null 2>&1
-apt install unzip > /dev/null 2>&1
-apt install apache2 -y > /dev/null 2>&1
-apt install cron curl unzip dirmngr -y > /dev/null 2>&1
-apt install lsb-release ca-certificates apt-transport-https software-properties-common -y > /dev/null 2>&1
-add-apt-repository ppa:ondrej/php -y > /dev/null 2>&1
-apt update > /dev/null 2>&1
-apt apt install php8.0 libapache2-mod-php8.0 php8.0-xml php8.0-mcrypt php8.0-curl php8.0-mbstring -y > /dev/null 2>&1
-systemctl restart apache2
-apt install mysql-server -y > /dev/null 2>&1
-cd || exit
-mysql -u root -p"$pwdroot" -e "UPDATE mysql.user SET Password=PASSWORD('$pwdroot') WHERE User='root'"
-mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''"
-mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'"
-mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
-mysql -u root -p"$pwdroot" -e "CREATE USER 'gestor'@'localhost';'"
-mysql -u root -p"$pwdroot" -e "CREATE DATABASE sshplus;"
-mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON sshplus.* To 'gestor'@'localhost' IDENTIFIED BY '$pwdroot';"
-mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
-echo '[mysqld]
-max_connections = 1000' >> /etc/mysql/my.cnf
-apt install php8.0-mysql -y > /dev/null 2>&1
-phpenmod mcrypt
-systemctl restart apache2
-ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
-apt install php8.0-ssh2 -y > /dev/null 2>&1
-php -m | grep ssh2 > /dev/null 2>&1
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-chmod +x /usr/local/bin/composer
-cd /var/www/html || exit
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh18.zip> /dev/null 2>&1
-unzip gestorssh.zip > /dev/null 2>&1
-chmod -R 777 /var/www/html
-rm gestorssh.zip index.html > /dev/null 2>&1
-(echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
-(echo yes; echo yes; echo yes; echo yes) | composer require phpseclib/phpseclib:~2.0 > /dev/null 2>&1
-systemctl restart mysql
 clear
-}
-function phpmadm {
-cd /usr/share || exit
-wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip > /dev/null 2>&1
-unzip phpMyAdmin-5.1.0-all-languages.zip > /dev/null 2>&1
-mv phpMyAdmin-5.1.0-all-languages phpmyadmin
-chmod -R 0755 phpmyadmin
-ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
-service apache2 restart 
-rm phpMyAdmin-5.1.0-all-languages.zip
-cd /root || exit
-}
-function pconf { 
-sed "s/1020/$pwdroot/" /var/www/html/pages/system/pass.php > /tmp/pass
-mv /tmp/pass /var/www/html/pages/system/pass.php
-}
-function inst_db { 
+echo "America/Sao_Paulo" > /etc/timezone
+ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
+dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 IP=$(wget -qO- ipv4.icanhazip.com)
-curl $IP/create.php > /dev/null 2>&1
-rm /var/www/html/create.php /var/www/html/sshplus.sql
-}
-function cron_set {
+clear
+echo -e "\E[44;1;37m    INSTALAR PAINELWEB GESTOR-SSH     \E[0m" 
+echo ""
+echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
+echo ""
+echo -ne "\n\033[1;32mDEFINA UMA SENHA PARA O\033[1;33m MYSQL\033[1;37m: "; read -r senha
+echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
+echo "root:$senha" | chpasswd
+apt-get update -y > /dev/null 2>&1
+apt-get install cron curl unzip -y > /dev/null 2>&1
+echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
+apt-get install apache2 -y > /dev/null 2>&1
+apt-get install php5 libapache2-mod-php5 php5-mcrypt -y > /dev/null 2>&1
+service apache2 restart > /dev/null 2>&1
+echo -e "\n\033[1;36mINSTALANDO O MySQL \033[1;33mAGUARDE...\033[0m"
+echo "debconf mysql-server/root_password password $senha" | debconf-set-selections
+echo "debconf mysql-server/root_password_again password $senha" | debconf-set-selections
+apt-get install mysql-server -y > /dev/null 2>&1
+mysql_install_db > /dev/null 2>&1
+(echo "$senha"; echo n; echo y; echo y; echo y; echo y)|mysql_secure_installation > /dev/null 2>&1
+echo -e "\n\033[1;36mINSTALANDO O PHPMYADMIN \033[1;33mAGUARDE...\033[0m"
+echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/app-password-confirm password $senha" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/mysql/admin-pass password $senha" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/mysql/app-pass password $senha" | debconf-set-selections
+echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
+apt-get install phpmyadmin -y > /dev/null 2>&1
+php5enmod mcrypt > /dev/null 2>&1
+service apache2 restart > /dev/null 2>&1
+ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+apt-get install libssh2-1-dev php-ssh2 -y > /dev/null 2>&1
+if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
+  true
+else
+  clear
+  echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
+  cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+clear
+    exit
+pweb
+fi
+apt-get install php5-curl > /dev/null 2>&1
+service apache2 restart > /dev/null 2>&1
+clear
+echo ""
+echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
+echo ""
+echo -ne "\033[1;32m INFORME A MESMA SENHA\033[1;37m: "; read senha
+sleep 1
+mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
+clear
+echo -e "\033[1;36m FINALIZANDO INSTALAÇÃO\033[0m"
+echo ""
+echo -e "\033[1;33m AGUARDE..."
+echo ""
+clear
+cd /var/www/html || exit
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
+unzip gestorssh.zip > /dev/null 2>&1
+rm -rf gestorssh.zip index.html > /dev/null 2>&1
+chmod 777 -R /var/www/html > /dev/null 2>&1
+sleep 1
+if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
+sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
+fi
+sleep 1
+cd || exit
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/bdgestorssh.sql > /dev/null 2>&1
+sleep 1
+if [[ -e "$HOME/bdgestorssh.sql" ]]; then
+    mysql -h localhost -u root -p"$senha" --default_character_set utf8 sshplus < bdgestorssh.sql
+    rm /root/bdgestorssh.sql
+else
+    clear
+    echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
+    sleep 2
+    service apache2 restart > /dev/null 2>&1
+cat /dev/null > ~/.bash_history && history -c
+rm /root/*.sh* > /dev/null 2>&1
+clear
+    exit
+pweb
+fi
+clear
 crontab -l > cronset
 echo "
-* * * * * /bin/usersteste.sh
+* * * * * /bin/userteste.sh
 */5 * * * * /bin/autobackup.sh
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
 * * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.servidor.php
-* * * * * /usr/bin/php /var/www/html/pages/system/cron.rev.php
+@daily /usr/bin/php /var/www/html/pages/system/cron.rev.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
 */1 * * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
 0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
 crontab cronset && rm cronset
-}
-function fun_swap {
-            swapoff -a
-            rm -rf /bin/ram.img > /dev/null 2>&1
-            fallocate -l 4G /bin/ram.img > /dev/null 2>&1
-            chmod 600 /bin/ram.img > /dev/null 2>&1
-            mkswap /bin/ram.img > /dev/null 2>&1
-            swapon /bin/ram.img > /dev/null 2>&1
-            echo 50  > /proc/sys/vm/swappiness
-            echo '/bin/ram.img none swap sw 0 0' | sudo tee -a /etc/fstab > /dev/null 2>&1
-            sleep 2
-}
-function tst_bkp {
-cd $HOME || exit
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh
-chmod 777 /bin/usersteste.sh
-chmod 777 /bin/autobackup.sh
-mkdir /root/backupsql
-}
-
-echo "America/Sao_Paulo" > /etc/timezone
-ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
-dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
+cd /bin || exit
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/userteste.sh
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/autobackup.sh
+chmod 777 /bin/userteste.sh > /dev/null 2>&1
+chmod 777 /bin/autobackup.sh > /dev/null 2>&1
+mkdir /root/backupsql > /dev/null 2>&1
+chmod 777 -R /root/backupsql > /dev/null 2>&1
 clear
+sleep 1
+echo -e "\033[1;32m GESTOR-SSH INSTALADO COM SUCESSO!"
 echo ""
-echo -e "\E[44;1;37m    INSTALAR O PAINELWEB GESTOR-SSH     \E[0m"
-echo ""
-echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
-echo ""
-read -r -p "Digite sua senha de root: " pwdroot
-echo "root:$pwdroot" | chpasswd
-echo "Prosseguindo..." 
-echo "..."
-echo -e "           \033[1;33m● \033[1;32mINSTALAÇÃO EM ANDAMENTO, PODE DEMORAR, \033[1;33m● \033[1;33mAGUARDE...\033[0m"
-sleep 2
-inst_base
-phpmadm
-pconf
-inst_db
-cron_set
-fun_swap
-tst_bkp
-clear
-IP=$(wget -qO- ipv4.icanhazip.com)
-clear
-echo -e "\E[44;1;37m    PAINELWEB INSTALADO COM SUCESSO     \E[0m"
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "\033[1;36m IP DO SEU PAINELWEB:\033[1;37m http://$IP/admin\033[0m"
+echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;33m Altere a senha quando logar no painel>> Configuracoes>> Senha Antiga: admin >> Nova Senha: \033[0m"
-echo ""
-echo -e "\033[1;31m A VPS SERÁ REINICIADA EM 10 SEGUNDOS...\033[0m"
-sleep 15
-echo -e "\033[1;31mREINICIANDO...\033[0m"
-shutdown -r now
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@nandoslayer\033[0m"
+service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
-cd $HOME || exit; rm instubuntu > /dev/null 2>&1
+sleep 5
+clear
+pweb
