@@ -22,4 +22,7 @@ shutdown -r now > /dev/null
 clear
 echo -e "\033[1;32mDEFINA A SENHA ROOT\033[0m"; sleep 2s; passwd
 clean
-pweb
+echo -e "        \033[1;33m • \033[1;32mSENHA ROOT ALTERADA COM SUCESSO\033[1;33m • \033[0m"
+echo ""
+sleep 3s
+clear
