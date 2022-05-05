@@ -5,7 +5,7 @@ yum install wget -y; bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plus
 
 # INSTALAR OU ATUALIZAR PAINELWEB GESTOR-SSH DEBIAN 8 e UBUNTU 14! ATUALIZAÇÃO 05/05/2022.
 ```
-apt-get install wget -y; bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instpainel.sh)
+apt-get update upgrade install wget -y; bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instpainel.sh)
 ```
 
 # SINCRONIZAR NA VPS, COMPATÍVEL COM O PAINEL GESTOR-SSH! ATUALIZAÇÃO 03/05/2022.
