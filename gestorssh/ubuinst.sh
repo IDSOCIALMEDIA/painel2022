@@ -116,8 +116,10 @@ echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
 echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@nandoslayer\033[0m"
-service apache2 restart > /dev/null 2>&1
+echo ""
+echo -e "\033[1;36m REINICIANDO\033[1;37m EM 10 SEGUNDOS\033[0m"
+shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
 sleep 10
 clear
-pweb
+exit
