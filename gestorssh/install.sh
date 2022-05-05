@@ -64,6 +64,7 @@ cd /var/www/html || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
 rm -rf gestorssh.zip index.html > /dev/null 2>&1
+chmod 777 -R /var/www/html > /dev/null 2>&1
 sleep 1
 if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
@@ -87,29 +88,26 @@ clear
 pweb
 fi
 clear
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.rev.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
-echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
-echo '0 */12 * * * root cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root' >> /etc/crontab
-echo '5 */12 * * * root cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root' >> /etc/crontab
-# LIMPEZA HISTORICO USUARIOS ONLINE A CADA 1 MINUTO #
-echo '*/1 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
-# BACKUP BANCO DE DADOS DATABASE SQL A CADA 5 MINUTOS #
-echo '*/5 * * * * root /bin/autobackup.sh' >> /etc/crontab
-echo '* * * * * root /bin/usersteste.sh' >> /etc/crontab
-rm /bin/usersteste.sh > /dev/null 2>&1
-rm /bin/autobackup.sh > /dev/null 2>&1
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/backupauto > /bin/autobackup.sh > /dev/null 2>&1
-wget -qO- https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/uteste > /bin/usersteste.sh > /dev/null 2>&1
-chmod 777 /bin/usersteste.sh
-chmod 777 /bin/autobackup.sh
-/etc/init.d/cron reload > /dev/null 2>&1
-/etc/init.d/cron restart > /dev/null 2>&1
+crontab -l > cronset
+echo "
+* * * * * /bin/userteste.sh
+*/5 * * * * /bin/autobackup.sh
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php
+@daily /usr/bin/php /var/www/html/pages/system/cron.rev.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.ssh.php
+* * * * * /usr/bin/php /var/www/html/pages/system/cron.php
+*/1 * * * * /usr/bin/php /var/www/html/pages/system/cron.limpeza.php
+0 */12 * * * cd /var/www/html/pages/system/ && bash cron.backup.sh && cd /root
+5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
+crontab cronset && rm cronset
+cd /bin || exit
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/userteste.sh
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/autobackup.sh
+chmod 777 /bin/userteste.sh > /dev/null 2>&1
+chmod 777 /bin/autobackup.sh > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
-chmod -R 777 /root/backupsql > /dev/null 2>&1
-chmod -R 777 /var/www/html
+chmod 777 -R /root/backupsql > /dev/null 2>&1
+clear
 sleep 1
 echo -e "\033[1;32m GESTOR-SSH INSTALADO COM SUCESSO!"
 echo ""
@@ -119,24 +117,9 @@ echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo ""
-echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mpweb\033[0m"
 echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@nandoslayer\033[0m"
 service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
-rm /root/*.sh* > /dev/null 2>&1
 sleep 5
-cd /bin || exit
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/pweb > /dev/null 2>&1
-chmod 777 pweb > /dev/null 2>&1
 clear
-mkdir /bin/pweb > /dev/null 2>&1
-cd /bin/pweb || exit
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
-wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainel.sh > /dev/null 2>&1
-chmod 777 *.sh > /dev/null 2>&1
-chmod 777 *.sh > /dev/null 2>&1
-clear
-exit
+pweb

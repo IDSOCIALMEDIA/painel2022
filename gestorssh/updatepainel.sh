@@ -52,20 +52,14 @@ senha=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 echo ""
 echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ATUALIZAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
 cd /var/www/html || exit
-rm -rf *.php *.png *.ico *.zip *.jpg *.sql *.html logo admin app-assets arquivos assets lib pages phpmailer scripts src > /dev/null 2>&1
+rm -rf * > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh.zip > /dev/null 2>&1
 sleep 1
 unzip -o gestorssh.zip > /dev/null 2>&1
 rm -rf gestorssh.zip index.html > /dev/null 2>&1
-clear
-/etc/init.d/cron reload
-/etc/init.d/cron restart
 mkdir /root/backupsql > /dev/null 2>&1
-chmod 777 /root/backupsql
-chmod 777 /var/www/html/admin/pages/servidor/ovpn
-chmod 777 /var/www/html/admin/pages/download
-chmod 777 /var/www/html/admin/pages/faturas/comprovantes
-chmod 777 /var/www/html/backups
+chmod 777 /root/backupsql > /dev/null 2>&1
+chmod 777 -R /var/www/ > /dev/null 2>&1
 sleep 1
 if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1

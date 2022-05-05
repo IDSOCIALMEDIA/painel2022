@@ -25,7 +25,7 @@ clear
 yum update -y
 yum upgrade -y
 yum install epel-release -y 
-yum install php htop zip nload nano phpmyadmin httpd mysql mariadb-server php-pecl-ssh2 -y
+yum install php htop zip cron nload nano phpmyadmin httpd mysql mariadb-server php-pecl-ssh2 -y
 yum install gcc php-devel libssh2 libssh2-devel php-pear make php-mcrypt unzip wget screen -y
 setsebool -P httpd_can_network_connect 1
 systemctl enable httpd

@@ -54,7 +54,6 @@ sed -i "s;$empresaatual;$empresa;g" /var/www/html/login.php > /dev/null 2>&1
 sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/home.php > /dev/null 2>&1
 sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/index.php > /dev/null 2>&1
 sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
-sed -i "s;$empresaatual;$empresa;g" /var/www/html/admin/login.php > /dev/null 2>&1
 echo ""
 service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c

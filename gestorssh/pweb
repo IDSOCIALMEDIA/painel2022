@@ -51,11 +51,12 @@ fun_atpweb () {
     mkdir /bin/ppweb > /dev/null 2>&1
 cd /bin/ppweb || exit
 rm *.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/install.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainel.sh > /dev/null 2>&1
-chmod 777 *.sh > /dev/null 2>&1
+chmod -R 777 /bin/ppweb > /dev/null 2>&1
 clear
 }
 
@@ -71,7 +72,7 @@ rm -rf /var/www/html
 
 ##INSTALAR PAINEL
 painel_inst () {
-    bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/install.sh)
+    /bin/ppweb/install.sh
 }
 painel_att () {
     /bin/ppweb/updatepainel.sh
