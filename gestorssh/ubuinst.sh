@@ -15,8 +15,10 @@ apt-get update -y > /dev/null 2>&1
 apt-get install cron curl unzip -y > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
 apt-get install apache2 -y > /dev/null 2>&1
-apt-get install php5 libapache2-mod-php5 php5-mcrypt -y > /dev/null 2>&1
-service apache2 restart > /dev/null 2>&1
+add-apt-repository ppa:ondrej/php -y > /dev/null 2>&1
+apt update -y > /dev/null 2>&1
+apt install php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.4-curl php7.4-mbstring -y > /dev/null 2>&1
+systemctl restart apache2 > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO O MySQL \033[1;33mAGUARDE...\033[0m"
 echo "debconf mysql-server/root_password password $senha" | debconf-set-selections
 echo "debconf mysql-server/root_password_again password $senha" | debconf-set-selections
@@ -32,8 +34,7 @@ echo "phpmyadmin phpmyadmin/mysql/admin-pass password $senha" | debconf-set-sele
 echo "phpmyadmin phpmyadmin/mysql/app-pass password $senha" | debconf-set-selections
 echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
 apt-get install phpmyadmin -y > /dev/null 2>&1
-php5enmod mcrypt > /dev/null 2>&1
-service apache2 restart > /dev/null 2>&1
+systemctl restart apache2 > /dev/null 2>&1
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 apt-get install libssh2-1-dev php-ssh2 -y > /dev/null 2>&1
 if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
@@ -47,8 +48,7 @@ clear
     exit
 pweb
 fi
-apt-get install php5-curl > /dev/null 2>&1
-service apache2 restart > /dev/null 2>&1
+systemctl restart apache2 > /dev/null 2>&1
 clear
 sleep 1
 mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
