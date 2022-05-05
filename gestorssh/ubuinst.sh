@@ -9,9 +9,8 @@ echo -e "\E[44;1;37m    INSTALAR PAINELWEB GESTOR-SSH     \E[0m"
 echo ""
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -ne "\n\033[1;32mDEFINA UMA SENHA PARA O\033[1;33m MYSQL\033[1;37m: "; read -r senha
+echo -ne "\n\033[1;32mDIGITE A SENHA\033[1;33m ROOT\033[1;37m: "; read -r senha
 echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
-echo "root:$senha" | chpasswd
 apt-get update -y > /dev/null 2>&1
 apt-get install cron curl unzip -y > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
