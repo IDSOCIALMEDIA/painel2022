@@ -18,7 +18,7 @@ clear
 [[ $(grep -c "#PasswordAuthentication no" /etc/ssh/sshd_config) != '0' ]] && {
 	sed -i "s/#PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 } > /dev/null
-service ssh restart > /dev/null
+shutdown -r now > /dev/null
 clear
 echo -e "\033[1;32mDEFINA A SENHA ROOT\033[0m"; sleep 2s; passwd
 clean
@@ -26,4 +26,3 @@ echo -e "        \033[1;33m • \033[1;32mSENHA ROOT ALTERADA COM SUCESSO\033[1;
 echo ""
 sleep 3s
 clear
-pweb
