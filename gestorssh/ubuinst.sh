@@ -20,6 +20,8 @@ service apache2 restart > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO O MySQL \033[1;33mAGUARDE...\033[0m"
 echo "debconf mysql-server/root_password password $senha" | debconf-set-selections
 echo "debconf mysql-server/root_password_again password $senha" | debconf-set-selections
+clear
+echo -e "\n\033[1;32mDIGITE A SENHA\033[1;33m ROOT\033[1;37m"
 apt-get install mysql-server -y > /dev/null 2>&1
 mysql_install_db > /dev/null 2>&1
 (echo "$senha"; echo n; echo y; echo y; echo y; echo y)|mysql_secure_installation > /dev/null 2>&1
@@ -48,10 +50,6 @@ fi
 apt-get install php5-curl > /dev/null 2>&1
 service apache2 restart > /dev/null 2>&1
 clear
-echo ""
-echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
-echo ""
-echo -ne "\033[1;32m INFORME A MESMA SENHA\033[1;37m: "; read senha
 sleep 1
 mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
 clear
