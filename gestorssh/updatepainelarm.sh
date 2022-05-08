@@ -75,6 +75,8 @@ echo -e "   GESTOR-SSH" | figlet
 echo ""
 echo -e "\033[1;36m PAINELWEB DIGITE ESSE IP NO NAVEGADOR:\033[1;37m http://$IP/admin\033[0m"
 echo ""
+sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
+sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 sleep 5
 service apache2 restart
 cat /dev/null > ~/.bash_history && history -c
