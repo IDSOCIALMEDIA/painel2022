@@ -121,9 +121,9 @@ echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m):
 echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
-echo -e "\033[1;36m REINICIANDO\033[1;37m EM 10 SEGUNDOS\033[0m"
+echo -e "\033[1;36m REINICIANDO\033[1;37m EM 20 SEGUNDOS\033[0m"
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
-sleep 10
+sleep 20
 clear
 exit
