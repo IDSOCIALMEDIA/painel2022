@@ -49,10 +49,6 @@ apt-get install php5-curl > /dev/null 2>&1
 service apache2 restart > /dev/null 2>&1
 clear
 echo ""
-echo -e "\033[1;31m ATENÇÃO \033[1;33m!!!"
-echo ""
-echo -ne "\033[1;32m INFORME A MESMA SENHA\033[1;37m: "; read senha
-sleep 1
 mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
 clear
 echo -e "\033[1;36m FINALIZANDO INSTALAÇÃO\033[0m"
@@ -124,8 +120,8 @@ echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 echo -e "\033[1;36m REINICIANDO\033[1;37m EM 20 SEGUNDOS\033[0m"
+sleep 20
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
-sleep 20
 clear
 exit
