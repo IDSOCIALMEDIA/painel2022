@@ -21,7 +21,7 @@ echo -e "\n\033[1;36mINSTALANDO O MySQL \033[1;33mAGUARDE...\033[0m"
 echo "debconf mysql-server/root_password password $senha" | debconf-set-selections
 echo "debconf mysql-server/root_password_again password $senha" | debconf-set-selections
 clear
-apt-get install mysql-server -y > /dev/null 2>&1
+apt-get install mariadb-server -y > /dev/null 2>&1
 mysql_install_db > /dev/null 2>&1
 echo -e "\n\033[1;32mDIGITE A SENHA\033[1;33m ROOT\033[1;37m"
 (echo "$senha"; echo n; echo y; echo y; echo y; echo y)|mysql_secure_installation > /dev/null 2>&1
@@ -122,8 +122,8 @@ echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 echo -e "\033[1;36m REINICIANDO\033[1;37m EM 20 SEGUNDOS\033[0m"
+sleep 20
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
-sleep 20
 clear
 exit
