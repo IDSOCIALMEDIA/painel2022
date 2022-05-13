@@ -33,9 +33,9 @@ chmod +x /usr/local/bin/composer
 cd /var/www/html
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh18.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
-unzip v20.zip > /dev/null 2>&1
+unzip gestorssh18.zip > /dev/null 2>&1
 chmod -R 777 /var/www/html
-rm v20.zip index.html > /dev/null 2>&1
+rm gestorssh18.zip index.html > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer install > /dev/null 2>&1
 (echo yes; echo yes; echo yes; echo yes) | composer require phpseclib/phpseclib:~2.0 > /dev/null 2>&1
 systemctl restart mysql
@@ -48,7 +48,7 @@ unzip phpMyAdmin-5.1.0-all-languages.zip > /dev/null 2>&1
 mv phpMyAdmin-5.1.0-all-languages phpmyadmin
 chmod -R 0755 phpmyadmin
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
-service apache2 restart 
+systemctl restart apache2 
 rm phpMyAdmin-5.1.0-all-languages.zip
 cd /root
 }
@@ -69,7 +69,7 @@ else
     clear
     echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
     sleep 2
-    service apache2 restart > /dev/null 2>&1
+    systemctl restart apache2 > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
 rm /root/*.sh* > /dev/null 2>&1
 clear
