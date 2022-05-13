@@ -74,9 +74,14 @@ rm -rf /var/www/html
 
 ##INSTALAR PAINEL
 painel_inst () {
-    echo -e "\033[1;36mSELECIONE O SISTEMA DE SUA VPS: \033[1;37m"
+echo ""
+echo ""  
+echo -e "\033[1;36mSELECIONE O SISTEMA DE SUA VPS: \033[1;37m"
+echo ""
 echo -e "[1] - UBUNTU 18"
+echo ""
 echo -e "[2] - DEBIAN 8 OU UBUNTU 14"
+echo ""
 echo -ne "\033[1;36mOpção: \033[1;37m"
 read resposta
 if [[ "$resposta" = '1' ]]; then
@@ -94,9 +99,14 @@ painel_att () {
     /bin/ppweb/updatepainel.sh
 }
 painel_rest () {
-    echo -e "\033[1;36mSELECIONE QUAL SISTEMA QUE QUER RESTAURAR O SQL: \033[1;37m"
+echo ""
+echo ""
+echo -e "\033[1;36mSELECIONE QUAL SISTEMA QUE QUER RESTAURAR O SQL: \033[1;37m"
+echo ""
 echo -e "[1] - PAINEL WEB NO UBUNTU 18"
+echo ""
 echo -e "[2] - PAINEL WEB NO DEBIAN 8 OU UBUNTU 14"
+echo ""
 echo -ne "\033[1;36mOpção: \033[1;37m"
 read resposta
 if [[ "$resposta" = '1' ]]; then
