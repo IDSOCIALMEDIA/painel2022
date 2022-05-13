@@ -9,7 +9,7 @@ echo -e "\E[44;1;37m    INSTALAR PAINELWEB GESTOR-SSH     \E[0m"
 echo ""
 echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -ne "\n\033[1;32mDEFINA UMA SENHA PARA O\033[1;33m MYSQL\033[1;37m: "; read -r senha
+echo -ne "\n\033[1;32mDIGITE SUA SENHA\033[1;33m ROOT\033[1;37m: "; read -r senha
 echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
 apt-get update -y > /dev/null 2>&1
 apt-get install cron curl unzip -y > /dev/null 2>&1
@@ -103,6 +103,9 @@ chmod 777 /bin/userteste.sh > /dev/null 2>&1
 chmod 777 /bin/autobackup.sh > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
 chmod 777 -R /root/backupsql > /dev/null 2>&1
+_key=$(echo $(openssl rand -hex 5))
+sed -i "s;49875103u;$_key;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
+sed -i "s;localhost;$IP;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 clear
 sleep 1
 echo -e "\033[1;32m GESTOR-SSH INSTALADO COM SUCESSO!"
@@ -114,6 +117,10 @@ echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
 echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
+echo ""
+echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/phpmyadmin\033[0m"
+echo -e "\033[1;36m USUÁRIO:\033[1;37m sshplus\033[0m"
+echo -e "\033[1;36m SENHA:\033[1;37m $senha\033[0m"
 echo ""
 echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@nandoslayer\033[0m"
 echo ""

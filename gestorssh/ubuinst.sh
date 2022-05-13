@@ -115,18 +115,22 @@ _key=$(echo $(openssl rand -hex 5))
 sed -i "s;49875103u;$_key;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 sed -i "s;localhost;$IP;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 }
-
+IP=$(wget -qO- ipv4.icanhazip.com)
 echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
-echo -e "\E[44;1;37m       INSTALADOR PAINEL       \E[0m"
+echo -e "\E[44;1;37m    INSTALAR PAINELWEB GESTOR-SSH     \E[0m" 
 echo ""
-read -p "Digite sua senha de root: " pwdroot
+echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
+echo ""
+read -p "DIGITE SUA SENHA ROOT: " pwdroot
 echo "root:$pwdroot" | chpasswd
-echo "Prosseguindo..." 
+echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
+sleep 6
+clear
+echo "INSTALANDO DEPENDÊNCIAS"
 echo "..."
-echo "Isso irá levar alguns minutos (3 a 10)."
 sleep 2
 inst_base
 phpmadm
@@ -136,14 +140,27 @@ cron_set
 fun_swap
 tst_bkp
 clear
-echo -e "\E[44;1;37m           PAINEL            \E[0m"
+echo -e "\033[1;32m GESTOR-SSH INSTALADO COM SUCESSO!"
 echo ""
-echo -e "INSTALADO COM SUCESSO!"
+echo -e "                 \033[1;31mBy @nandoslayer\033[1;36m"
 echo ""
-echo -e "PAINEL : \033[1;33mhttp://$IP/admin\033[0m"
-echo -e "Login: \033[1;33madmin\033[0m"
-echo -e "Senha: \033[1;33madmin\033[0m"
+echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
+echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
+echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;33m Altere a senha ao logar no painel\033[0m"
+echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
+echo ""
+echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/phpmyadmin\033[0m"
+echo -e "\033[1;36m USUÁRIO:\033[1;37m sshplus\033[0m"
+echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
+echo ""
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@nandoslayer\033[0m"
+echo ""
+sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
+sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
+echo -e "\033[1;36m REINICIANDO\033[1;37m EM 20 SEGUNDOS\033[0m"
+sleep 20
+shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
-pweb
+clear
+exit
