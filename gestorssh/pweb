@@ -55,6 +55,7 @@ wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/install.sh > /d
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/ubuinst.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/senharoot.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco18.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainel.sh > /dev/null 2>&1
 chmod -R 777 /bin/ppweb > /dev/null 2>&1
@@ -93,7 +94,21 @@ painel_att () {
     /bin/ppweb/updatepainel.sh
 }
 painel_rest () {
-    /bin/ppweb/restbanco.sh
+    echo -e "\033[1;36mSELECIONE QUAL SISTEMA QUE QUER RESTAURAR O SQL: \033[1;37m"
+echo -e "[1] - PAINEL WEB NO UBUNTU 18"
+echo -e "[2] - PAINEL WEB NO DEBIAN 8 OU UBUNTU 14"
+echo -ne "\033[1;36mOpção: \033[1;37m"
+read resposta
+if [[ "$resposta" = '1' ]]; then
+    /bin/ppweb/restbanco18.sh
+elif [[ "$resposta" = '2' ]]; then
+/bin/ppweb/restbanco.sh
+    else
+ echo ""
+    echo -e "\033[1;31mOpção inválida !\033[0m"
+    sleep 1
+    pweb
+fi
 }
 painel_empresa () {
     /bin/ppweb/empresa.sh
