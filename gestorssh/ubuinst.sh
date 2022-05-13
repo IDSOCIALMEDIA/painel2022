@@ -9,7 +9,7 @@ apt update > /dev/null 2>&1
 apt install php7.4 libapache2-mod-php7.4 php7.4-xml php7.4-mcrypt php7.4-curl php7.4-mbstring -y > /dev/null 2>&1
 systemctl restart apache2
 apt-get install mariadb-server -y > /dev/null 2>&1
-cd
+cd || exit
 mysqladmin -u root password "$pwdroot"
 mysql -u root -p"$pwdroot" -e "UPDATE mysql.user SET Password=PASSWORD('$pwdroot') WHERE User='root'"
 mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''"
@@ -30,7 +30,7 @@ php -m | grep ssh2 > /dev/null 2>&1
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
-cd /var/www/html
+cd /var/www/html || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/gestorssh18.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
 unzip gestorssh18.zip > /dev/null 2>&1
@@ -42,7 +42,7 @@ systemctl restart mysql
 clear
 }
 function phpmadm {
-cd /usr/share
+cd /usr/share || exit
 wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip > /dev/null 2>&1
 unzip phpMyAdmin-5.1.0-all-languages.zip > /dev/null 2>&1
 mv phpMyAdmin-5.1.0-all-languages phpmyadmin
@@ -50,7 +50,7 @@ chmod -R 0755 phpmyadmin
 ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 systemctl restart apache2 
 rm phpMyAdmin-5.1.0-all-languages.zip
-cd /root
+cd /root || exit
 }
 
 function pconf { 
@@ -75,6 +75,8 @@ rm /root/*.sh* > /dev/null 2>&1
 clear
     exit
 pweb
+fi
+clear
 }
 function cron_set {
 crontab -l > cronset
