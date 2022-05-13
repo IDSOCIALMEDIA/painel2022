@@ -40,6 +40,7 @@ IP=$(wget -qO- ipv4.icanhazip.com)
 echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
+IP=$(wget -qO- ipv4.icanhazip.com)
 clear
 echo -e "\E[44;1;37m    ATUALIZANDO O PAINELWEB GESTOR-SSH     \E[0m"
 echo ""
@@ -49,6 +50,7 @@ echo ""
 clear
 #
 senha=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
+empresaatual=$(cut -d"'" -f2 /var/www/html/empresa)
 echo ""
 echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ATUALIZAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mAGUARDE...\033[0m"
 cd /var/www/html || exit
@@ -59,15 +61,28 @@ unzip -o gestorssh.zip > /dev/null 2>&1
 rm -rf gestorssh.zip index.html > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
 chmod 777 /root/backupsql > /dev/null 2>&1
-chmod 777 -R /var/www/ > /dev/null 2>&1
+chmod 777 -R /var/www/html > /dev/null 2>&1
+_key=$(echo $(openssl rand -hex 5))
+sed -i "s;49875103u;$_key;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
+sed -i "s;localhost;$IP;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 sleep 1
 if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
 sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
 fi
 #
 clear
-IP=$(wget -qO- ipv4.icanhazip.com)
-clear
+cd || exit
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/empresa > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/home.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/index.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/login.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/home.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/index.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/admin/login.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/apps/index.php > /dev/null 2>&1
+sed -i "s;EMPRESA;$empresaatual;g" /var/www/html/apps/termos.php > /dev/null 2>&1
+echo ""
+service apache2 restart > /dev/null 2>&1
 echo ""
 echo -e "                              \033[1;31mBy @nandoslayer\033[1;36m"
 echo -e "   GESTOR-SSH" | figlet
@@ -78,8 +93,6 @@ echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
 echo ""
 echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@nandoslayer\033[0m"
 echo ""
-sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
-sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 sleep 20
 service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c

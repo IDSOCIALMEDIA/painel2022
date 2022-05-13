@@ -58,7 +58,10 @@ wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco.sh > 
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/restbanco18.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/empresa.sh > /dev/null 2>&1
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainel.sh > /dev/null 2>&1
-chmod -R 777 /bin/ppweb > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainel18.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainelarm.sh > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/updatepainelarm18.sh > /dev/null 2>&1
+chmod 777 *.sh > /dev/null 2>&1
 clear
 }
 
@@ -96,7 +99,70 @@ elif [[ "$resposta" = '2' ]]; then
 fi
 }
 painel_att () {
+    echo ""
+echo ""
+echo -e "\033[1;36mSELECIONE QUAL SISTEMA QUE QUER ATUALIZAR: \033[1;37m"
+echo ""
+echo -e "[1] - PAINEL WEB NO UBUNTU 18"
+echo ""
+echo -e "[2] - PAINEL WEB NO DEBIAN 8 OU UBUNTU 14"
+echo ""
+echo -ne "\033[1;36mOpção: \033[1;37m"
+read resposta
+if [[ "$resposta" = '1' ]]; then
+    painel_att18
+elif [[ "$resposta" = '2' ]]; then
+painel_att14
+    else
+ echo ""
+    echo -e "\033[1;31mOpção inválida !\033[0m"
+    sleep 1
+    pweb
+fi
+}
+painel_att18 () {
+    echo ""
+echo ""
+echo -e "\033[1;36mSELECIONE O MODO COMPATÍVEL CONFORME SUA VPS SSH: \033[1;37m"
+echo ""
+echo -e "[1] - VPS SSH PADRÃO X86_64"
+echo ""
+echo -e "[2] - VPS SSH NA AMPERE ARM"
+echo ""
+echo -ne "\033[1;36mOpção: \033[1;37m"
+read resposta
+if [[ "$resposta" = '1' ]]; then
+    /bin/ppweb/updatepainel18.sh
+elif [[ "$resposta" = '2' ]]; then
+/bin/ppweb/updatepainelarm18.sh
+    else
+ echo ""
+    echo -e "\033[1;31mOpção inválida !\033[0m"
+    sleep 1
+    pweb
+fi
+}
+painel_att14 () {
+    echo ""
+echo ""
+echo -e "\033[1;36mSELECIONE O MODO COMPATÍVEL CONFORME SUA VPS SSH: \033[1;37m"
+echo ""
+echo -e "[1] - VPS SSH PADRÃO X86_64"
+echo ""
+echo -e "[2] - VPS SSH NA AMPERE ARM"
+echo ""
+echo -ne "\033[1;36mOpção: \033[1;37m"
+read resposta
+if [[ "$resposta" = '1' ]]; then
     /bin/ppweb/updatepainel.sh
+elif [[ "$resposta" = '2' ]]; then
+/bin/ppweb/updatepainelarm.sh
+    else
+ echo ""
+    echo -e "\033[1;31mOpção inválida !\033[0m"
+    sleep 1
+    pweb
+fi
 }
 painel_rest () {
 echo ""
