@@ -16,7 +16,7 @@ mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.user WHERE User=''"
 mysql -u root -p"$pwdroot" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%'"
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
 mysql -u root -p"$pwdroot" -e "CREATE USER 'sshplus'@'localhost';'"
-mysql -u root -p"$pwdroot" -e "CREATE DATABASE plus;"
+mysql -u root -p"$pwdroot" -e "CREATE DATABASE sshplus;"
 mysql -u root -p"$pwdroot" -e "GRANT ALL PRIVILEGES ON sshplus.* To 'sshplus'@'localhost' IDENTIFIED BY '$pwdroot';"
 mysql -u root -p"$pwdroot" -e "FLUSH PRIVILEGES"
 echo '[mysqld]
