@@ -7,3 +7,8 @@ apt update -y; apt upgrade -y; apt install wget -y; bash <(wget -qO- raw.githubu
 ```
 apt install wget -y; bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/sincpainel.sh)
 ```
+
+# CHECKUSER PARA O APP CONECTA4G! ATUALIZAÇÃO 14/05/2022.
+```
+apt install wget -y; bash <(wget -qO- raw.githubusercontent.com/nandoslayer/plusnssh/ntech/gestorssh/instcheck.sh)
+```
