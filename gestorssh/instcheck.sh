@@ -16,8 +16,13 @@ rm /bin/chuser > /dev/null 2>&1
 sleep 5
 cd /bin || exit
 wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/chuser > /dev/null 2>&1
+wget https://github.com/nandoslayer/plusnssh/raw/ntech/gestorssh/userscheck > /dev/null 2>&1
 chmod 777 chuser > /dev/null 2>&1
+chmod 777 userscheck > /dev/null 2>&1
 clear
+mkdir /etc/rec > /dev/null 2>&1
+echo -e 'By: @KIRITO_SSH' > /etc/rec/licence
+echo -e 'By: @KIRITO_SSH' > /usr/lib/licence
 mkdir /usr/lib/checkuser > /dev/null 2>&1
 cd /usr/lib/checkuser || exit
 rm checkuser.py > /dev/null 2>&1

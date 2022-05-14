@@ -15,31 +15,31 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.config['JSON_SORT_KEYS'] = False
 
 def get_user(username: str) -> t.Optional[str]:
-    command = 'check %s 1' % username
+    command = 'userscheck %s 1' % username
     result = os.popen(command).readlines()
     final = result[0].strip()
     return final
 
 def cont_online(username: str) -> t.Optional[str]:
-    command = 'check %s 2' % username
+    command = 'userscheck %s 2' % username
     result = os.popen(command).readlines()
     final = result[0].strip()
     return final
 
 def limiter_user(username: str) -> t.Optional[str]:
-    command = 'check %s 3' % username
+    command = 'userscheck %s 3' % username
     result = os.popen(command).readlines()
     final = result[0].strip()
     return final
 
 def check_data(username: str) -> t.Optional[str]:
-    command = 'check %s 4' % username
+    command = 'userscheck %s 4' % username
     result = os.popen(command).readlines()
     final = result[0].strip()
     return final
 
 def check_dias(username: str) -> t.Optional[str]:
-    command = 'check %s 5' % username
+    command = 'userscheck %s 5' % username
     result = os.popen(command).readlines()
     final = result[0].strip()
     return final
